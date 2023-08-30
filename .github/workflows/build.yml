@@ -14,24 +14,12 @@ jobs:
 
     - uses: actions/checkout@v3.6.0
 
-    - name: ls
-      run: ls
-
     - name: cmake
       run: |
         pwd
         mkdir build
         cd build
         cmake .. -DSYSTEM_ID=MacOSX-x86
-
-    - name: ls
-      run: |
-        echo "ls"
-        ls
-        echo "ls WebServer"
-        ls WebServer
-        echo "ls build"
-        ls build
 
     - name: make
       run: |
