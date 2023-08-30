@@ -30,7 +30,7 @@ jobs:
         ls
         echo "ls WebServer"
         ls WebServer
-        echo "build"
+        echo "ls build"
         ls build
 
     - name: make
