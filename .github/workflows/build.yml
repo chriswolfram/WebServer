@@ -26,6 +26,10 @@ jobs:
         make capi
         cd capi
         make
+
+    - name: Build dynamic library
+      run: |
+        ls
     
     # - uses: actions/download-artifact@v3
     #   with:
