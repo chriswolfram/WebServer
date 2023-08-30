@@ -36,7 +36,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: build-macos
-        path: WebServer
+        path: build/WebServer
         if-no-files-found: error
 
 
