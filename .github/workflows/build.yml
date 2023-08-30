@@ -214,11 +214,6 @@ jobs:
           name: uwebsockets-build-linux
           path: deployed/WebServer/LibraryResources/Linux-x86-64/
 
-      - name: Print status
-        run: |
-          ls
-          ls WebServer
-
       - name: Upload final paclet
         uses: actions/upload-artifact@v3
         with:
