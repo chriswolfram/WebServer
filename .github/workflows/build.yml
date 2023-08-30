@@ -114,7 +114,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake .. -DSYSTEM_ID=Windows-x86-64
+        cmake .. -DSYSTEM_ID=Windows-x86-64 -DZLIB_LIBRARY=/usr/lib/libz.dll.a
 
     - name: make
       run: |
