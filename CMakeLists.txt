@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.24...3.27)
 
 project(WebServer VERSION 1.0.0)
 
-set(CMAKE_OSX_ARCHITECTURES "arm64")
+# set(CMAKE_OSX_ARCHITECTURES "arm64")
 
 # Load dependencies
 add_subdirectory(External)
