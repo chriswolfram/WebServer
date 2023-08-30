@@ -78,7 +78,7 @@ jobs:
         export LIBRARY_PATH=/opt/homebrew/lib
         
         cd uWebSockets/capi
-        clang -O3 -flto *.o --shared -o libuwebsockets.dylib
+        clang -O3 -flto *.o ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
         # clang -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
 
     - name: Upload artifacts
