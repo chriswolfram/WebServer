@@ -116,20 +116,15 @@ jobs:
         cd build
         cmake .. -DSYSTEM_ID=Windows-x86-64 -DZLIB_LIBRARY=/usr/lib/libz.dll.a
 
-    - name: ls
-      run: |
-        cd build
-        ls
-
     - name: make
       run: |
         cd build
-        make
+        nmake
 
     - name: make install
       run: |
         cd build
-        make install
+        nmake install
 
     - uses: actions/upload-artifact@v3
       with:
