@@ -119,12 +119,12 @@ jobs:
     - name: make
       run: |
         cd build
-        nmake
+        nmake.exe
 
     - name: make install
       run: |
         cd build
-        nmake install
+        nmake.exe install
 
     - uses: actions/upload-artifact@v3
       with:
