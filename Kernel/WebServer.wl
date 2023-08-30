@@ -65,8 +65,8 @@ StartWebServer[content_, port_] :=
 		requestHandler = CreateForeignCallback[
 			{response, request, userData} |->
 				Module[{httpRequest, httpResponse},
-					httpRequest = Echo@ReadHTTPRequest[request];
-					httpResponse = Echo@GenerateHTTPResponse[content, httpRequest];
+					httpRequest = ReadHTTPRequest[request];
+					httpResponse = GenerateHTTPResponse[content, httpRequest];
 					WriteHTTPResponse[ssl, httpResponse, response]
 				],
 			{"OpaqueRawPointer", "OpaqueRawPointer", "OpaqueRawPointer"} -> "Void"
