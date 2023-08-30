@@ -34,6 +34,35 @@ jobs:
     - name: Build dynamic library
       run: |
         ls
+
+  build-uwebsockets-linux: 
+    name: Build uWebSockets (Linux)
+    runs-on: ubuntu-latest
+    
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3.6.0
+      with:
+        repository: uNetworking/uWebSockets
+        path: uWebSockets
+        submodules: true
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get install libuv zlib
+
+    - name: Make
+      run: |
+        # Unclear if this first make is needed.
+        cd uWebSockets
+        make capi
+        cd capi
+        make
+
+    - name: Build dynamic library
+      run: |
+        ls
     
     # - uses: actions/download-artifact@v3
     #   with:
