@@ -96,12 +96,15 @@ jobs:
         path: uWebSockets
         submodules: true
 
+    - name: Setup MSYS2
+      uses: msys2/setup-msys2@v2
+
     # - name: Install dependencies
     #   run: |
     #     sudo apt-get install libuv1-dev
 
     - name: Make
-      shell: bash
+      shell: msys2 {0}
       run: |
         cd uWebSockets
         make
