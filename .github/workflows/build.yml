@@ -61,11 +61,11 @@ jobs:
       run: |
         brew install libuv
 
-    -name: Set search paths
+    - name: Set search paths
       run: |
         export CPATH=/opt/homebrew/include 
         export LIBRARY_PATH=/opt/homebrew/lib
-
+        
     - name: Make
       run: |
         # Unclear if this first make is needed.
