@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    901048,      15237]
-NotebookOptionsPosition[    898500,      15190]
-NotebookOutlinePosition[    898896,      15206]
-CellTagsIndexPosition[    898853,      15203]
+NotebookDataLength[    965322,      16649]
+NotebookOptionsPosition[    958700,      16534]
+NotebookOutlinePosition[    959094,      16550]
+CellTagsIndexPosition[    959051,      16547]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -51,6 +51,13 @@ Cell["Experiments", "Section",
  CellChangeTimes->{{3.902336684378093*^9, 
   3.902336685551578*^9}},ExpressionUUID->"66cda37e-6262-4496-a465-\
 7d4ef865cce4"],
+
+Cell[CellGroupData[{
+
+Cell["Basic", "Subsection",
+ CellChangeTimes->{{3.90236840296454*^9, 
+  3.902368403617854*^9}},ExpressionUUID->"9bd30edd-ad6a-4cc7-a9d9-\
+988a793a470d"],
 
 Cell[CellGroupData[{
 
@@ -15183,13 +15190,1350 @@ znDFxA==
 }, Open  ]]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
+Cell["Threading experiments", "Subsection",
+ CellChangeTimes->{{3.902363305663567*^9, 
+  3.90236330899096*^9}},ExpressionUUID->"db864205-8281-4f87-8c88-\
+bbcd5690de07"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FileSize", "[", "\"\</usr/lib/libSystem.B.dylib\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.902363339085763*^9, 3.902363345978404*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"dcbef42d-897f-44d1-b609-32a5e5d3f71a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "FileSize", "fdnfnd", 
+   "\"Directory or file \
+\\\"\\!\\(\\*RowBox[{\\\"\\\\\\\"/usr/lib/libSystem.B.dylib\\\\\\\"\\\"}]\\)\\\
+\" not found.\"", 2, 5, 4, 26538478542509784182, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9023633462842484`*^9},
+ CellLabel->
+  "During evaluation of \
+In[5]:=",ExpressionUUID->"52ccbccf-98fe-4960-96a8-955ecce6e156"],
+
+Cell[BoxData[
+ RowBox[{"FileSize", "[", "\<\"/usr/lib/libSystem.B.dylib\"\>", 
+  "]"}]], "Output",
+ CellChangeTimes->{{3.902363343298768*^9, 3.90236334628938*^9}},
+ CellLabel->"Out[5]=",ExpressionUUID->"68163993-aafd-44d5-85df-a3de5860b6bf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ForeignPointerLookup", "[", 
+  RowBox[{
+  "\"\</usr/lib/libSystem.B.dylib\>\"", ",", "\"\<pthread_create\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9023633291990347`*^9, 3.90236333605128*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"76e42c2e-934d-40c6-8be0-d1afd046dc37"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ForeignPointerLookup", "invlib", 
+   "\"Library \\!\\(\\*RowBox[{\\\"\\\\\\\"/usr/lib/libSystem.B.dylib\\\\\\\"\
+\\\"}]\\) not found.\"", 2, 3, 3, 26538478542509784182, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.902363332816616*^9, 3.9023633362914953`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[3]:=",ExpressionUUID->"735c6256-9259-4cca-9760-3223fd14a7e8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["Failure",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            FrameBox[
+             StyleBox["\"\[WarningSign]\"", 
+              Directive["Message", 35], StripOnInput -> False], 
+             ContentPadding -> False, FrameStyle -> None, 
+             FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
+            GridBox[{{
+               TagBox[
+                GridBox[{{
+                   TagBox["\"Message: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                   "\"Library \
+\\!\\(\\*TagBox[\\\"\\\\\\\"/usr/lib/libSystem.B.dylib\\\\\\\"\\\", \
+Function[Short[Slot[1], 5]]]\\) not found.\"", "SummaryItem"]}}, 
+                 GridBoxItemSize -> {"Columns" -> {6.5, All, Automatic}}, 
+                 GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                 GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
+               TagBox[
+                GridBox[{{
+                   TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["\"InvalidLibrary\"", "SummaryItem"]}}, 
+                 GridBoxItemSize -> {"Columns" -> {6.5, All, Automatic}}, 
+                 GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                 GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            FrameBox[
+             StyleBox["\"\[WarningSign]\"", 
+              Directive["Message", 35], StripOnInput -> False], 
+             ContentPadding -> False, FrameStyle -> None, 
+             FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
+            GridBox[{{
+               TagBox[
+                GridBox[{{
+                   TagBox["\"Message: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                   "\"Library \
+\\!\\(\\*TagBox[\\\"\\\\\\\"/usr/lib/libSystem.B.dylib\\\\\\\"\\\", \
+Function[Short[Slot[1], 5]]]\\) not found.\"", "SummaryItem"]}}, 
+                 GridBoxItemSize -> {"Columns" -> {6.5, All, Automatic}}, 
+                 GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                 GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
+               TagBox[
+                GridBox[{{
+                   TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["\"InvalidLibrary\"", "SummaryItem"]}}, 
+                 GridBoxItemSize -> {"Columns" -> {6.5, All, Automatic}}, 
+                 GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                 GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
+               RowBox[{
+                 TagBox[
+                  
+                  TemplateBox[{"\"LibrarySpecification\"", "\": \""}, 
+                   "RowDefault"], "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox["\"/usr/lib/libSystem.B.dylib\"", HoldForm], 
+                  "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox[
+                  
+                  TemplateBox[{"\"FindLibraryResult\"", "\": \""}, 
+                   "RowDefault"], "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox["$Failed", HoldForm], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  Failure[
+  "InvalidLibrary", <|
+   "MessageTemplate" :> MessageName[ForeignPointerLookup, "invlib"], 
+    "MessageParameters" -> {"/usr/lib/libSystem.B.dylib"}, 
+    "LibrarySpecification" -> "/usr/lib/libSystem.B.dylib", 
+    "FindLibraryResult" :> $Failed|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.902363332824662*^9, 3.9023633362967157`*^9}},
+ CellLabel->"Out[3]=",ExpressionUUID->"1ca56667-dc9a-4272-b8e4-8a047234ac74"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ForeignFunctionLoad", "[", 
+  RowBox[{"\"\</usr/lib/libSystem.B.dylib\>\"", ",", "\"\<sin\>\"", ",", 
+   RowBox[{
+    RowBox[{"{", "}"}], "->", "\"\<Void\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9023633123034887`*^9, 3.902363325223826*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"81e24e12-e474-43b4-9b3e-a76181ec488d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "ForeignFunctionLoad", "invlib", 
+   "\"Library \\!\\(\\*RowBox[{\\\"\\\\\\\"/usr/lib/libSystem.B.dylib\\\\\\\"\
+\\\"}]\\) not found.\"", 2, 1, 1, 26538478542509784182, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.902363325789159*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"a62db627-0627-48a7-8e61-20dfe41255f6"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["Failure",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            FrameBox[
+             StyleBox["\"\[WarningSign]\"", 
+              Directive["Message", 35], StripOnInput -> False], 
+             ContentPadding -> False, FrameStyle -> None, 
+             FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
+            GridBox[{{
+               TagBox[
+                GridBox[{{
+                   TagBox["\"Message: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                   "\"Library \
+\\!\\(\\*TagBox[\\\"\\\\\\\"/usr/lib/libSystem.B.dylib\\\\\\\"\\\", \
+Function[Short[Slot[1], 5]]]\\) not found.\"", "SummaryItem"]}}, 
+                 GridBoxItemSize -> {"Columns" -> {6.5, All, Automatic}}, 
+                 GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                 GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
+               TagBox[
+                GridBox[{{
+                   TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["\"InvalidLibrary\"", "SummaryItem"]}}, 
+                 GridBoxItemSize -> {"Columns" -> {6.5, All, Automatic}}, 
+                 GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                 GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            FrameBox[
+             StyleBox["\"\[WarningSign]\"", 
+              Directive["Message", 35], StripOnInput -> False], 
+             ContentPadding -> False, FrameStyle -> None, 
+             FrameMargins -> {{0, 0}, {0, 0}}, StripOnInput -> False], 
+            GridBox[{{
+               TagBox[
+                GridBox[{{
+                   TagBox["\"Message: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                   "\"Library \
+\\!\\(\\*TagBox[\\\"\\\\\\\"/usr/lib/libSystem.B.dylib\\\\\\\"\\\", \
+Function[Short[Slot[1], 5]]]\\) not found.\"", "SummaryItem"]}}, 
+                 GridBoxItemSize -> {"Columns" -> {6.5, All, Automatic}}, 
+                 GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                 GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
+               TagBox[
+                GridBox[{{
+                   TagBox["\"Tag: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["\"InvalidLibrary\"", "SummaryItem"]}}, 
+                 GridBoxItemSize -> {"Columns" -> {6.5, All, Automatic}}, 
+                 GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                 GridBoxSpacings -> {"Columns" -> {{0}}}], "SummaryItem"]}, {
+               RowBox[{
+                 TagBox[
+                  
+                  TemplateBox[{"\"LibrarySpecification\"", "\": \""}, 
+                   "RowDefault"], "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox["\"/usr/lib/libSystem.B.dylib\"", HoldForm], 
+                  "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox[
+                  
+                  TemplateBox[{"\"FindLibraryResult\"", "\": \""}, 
+                   "RowDefault"], "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox["$Failed", HoldForm], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  Failure[
+  "InvalidLibrary", <|
+   "MessageTemplate" :> MessageName[ForeignFunctionLoad, "invlib"], 
+    "MessageParameters" -> {"/usr/lib/libSystem.B.dylib"}, 
+    "LibrarySpecification" -> "/usr/lib/libSystem.B.dylib", 
+    "FindLibraryResult" :> $Failed|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.902363325866605*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"f27170c9-a706-4b7e-a8f2-ed738fdd48af"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ForeignFunctionInterface`ForeignPointerLookup`Private`\
+iForeignPointerLookup", "[", 
+  RowBox[{
+   RowBox[{"ToString", "[", 
+    RowBox[{"\"\<\>\"", ",", 
+     RowBox[{"CharacterEncoding", "->", "\"\<UTF8\>\""}]}], "]"}], ",", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"\"\<pthread_create\>\"", ",", 
+     RowBox[{"CharacterEncoding", "->", "\"\<UTF8\>\""}]}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.902364083862608*^9, 3.9023641160841913`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"c94535b5-7681-449a-a8e7-7df5e11d21c9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["OpaqueRawPointer",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"0\"", "\"16\""], ShowStringCharacters -> 
+                    False], 0, Editable -> False], BaseForm[#, 16]& ], 
+                  "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"0\"", "\"16\""], ShowStringCharacters -> 
+                    False], 0, Editable -> False], BaseForm[#, 16]& ], 
+                  "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  OpaqueRawPointer[0],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.902364103035501*^9, 3.90236411635842*^9}},
+ CellLabel->"Out[12]=",ExpressionUUID->"6b4eac80-7c29-4a86-8b03-27e3d19486de"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<CCompilerDriver`\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"lib", "=", 
+  RowBox[{"CreateLibrary", "[", 
+   RowBox[{
+   "\"\<\n#include <dlfcn.h>\n#include <stdlib.h>\n\nvoid* \
+get_func_ptr(unsigned char* name) {\n\treturn (void*)dlsym(RTLD_DEFAULT, \
+name);\n}\n\>\"", ",", "\"\<systemFuncGetter3\>\""}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.9023642803761797`*^9, 3.902364364362934*^9}, {
+  3.902364403918249*^9, 3.9023644271072083`*^9}, {3.902364509632586*^9, 
+  3.9023645124209013`*^9}, {3.9023645638841333`*^9, 3.902364565741397*^9}},
+ CellLabel->"In[44]:=",ExpressionUUID->"b9ea5dcc-bd2e-47fe-8c05-8963511ea365"],
+
+Cell[BoxData["\<\"/Users/christopher/Library/Mathematica/SystemFiles/\
+LibraryResources/MacOSX-ARM64/systemFuncGetter3.dylib\"\>"], "Output",
+ CellChangeTimes->{{3.902364343846572*^9, 3.9023643648561907`*^9}, 
+   3.902364427654848*^9, 3.902364523360621*^9, {3.902364564449223*^9, 
+   3.902364566107955*^9}},
+ CellLabel->"Out[45]=",ExpressionUUID->"d02557bb-409c-400e-a551-3b0907f6ea72"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getFuncPtrC", "=", 
+  RowBox[{"ForeignFunctionLoad", "[", 
+   RowBox[{"lib", ",", "\"\<get_func_ptr\>\"", ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<RawPointer\>\"", "::[", "\"\<UnsignedInteger8\>\"", "]"}], 
+      "}"}], "->", "\"\<OpaqueRawPointer\>\""}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.902364367491737*^9, 3.902364390624961*^9}, {
+  3.902364429376843*^9, 3.902364448823495*^9}},
+ CellLabel->"In[46]:=",ExpressionUUID->"10b10d24-bba7-4743-aa8f-dfd222856802"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["ForeignFunction",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"name: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"get_func_ptr\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"RawPointer\"", "]"}], 
+                    "[", "\"UnsignedInteger8\"", "]"}], "}"}], "\[Rule]", 
+                    "\"OpaqueRawPointer\""}], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"name: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"get_func_ptr\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"RawPointer\"", "]"}], 
+                    "[", "\"UnsignedInteger8\"", "]"}], "}"}], "\[Rule]", 
+                    "\"OpaqueRawPointer\""}], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"library: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"/Users/christopher/Library/Mathematica/SystemFiles/\
+LibraryResources/MacOSX-ARM64/systemFuncGetter3.dylib\"", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  ForeignFunction[
+  "/Users/christopher/Library/Mathematica/SystemFiles/LibraryResources/MacOSX-\
+ARM64/systemFuncGetter3.dylib", "get_func_ptr", 
+   DataStructure["RawForeignFunction", $Failed]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.902364384883016*^9, 3.902364393601946*^9}, 
+   3.902364449273953*^9, 3.902364526447006*^9, 3.902364567314205*^9},
+ CellLabel->"Out[46]=",ExpressionUUID->"8811fe3d-8fa3-45ff-87bf-3b9b181fd81a"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getFuncPtr", "[", "name_", "]"}], ":=", 
+  RowBox[{"getFuncPtrC", "[", 
+   RowBox[{"RawMemoryExport", "[", 
+    RowBox[{"name", ",", "\"\<UnsignedInteger8\>\""}], "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.902364450012692*^9, 3.902364488218857*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"e08afd40-c915-4010-9ca7-2640310c2ba4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getFuncPtr", "[", "\"\<sin\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.902364536631819*^9, 3.902364536787634*^9}, {
+  3.902364572680479*^9, 3.9023645745587587`*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"940ac788-414e-4272-b826-83865ed54952"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["OpaqueRawPointer",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"18e5a8470\"", "\"16\""], 
+                    ShowStringCharacters -> False], 6683264112, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"18e5a8470\"", "\"16\""], 
+                    ShowStringCharacters -> False], 6683264112, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  OpaqueRawPointer[6683264112],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.9023645370012627`*^9, {3.9023645687952957`*^9, 3.90236457477034*^9}},
+ CellLabel->"Out[52]=",ExpressionUUID->"2143e9bc-a695-4e86-8933-afb018345ca3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"getFuncPtr", "[", "\"\<pthread_create\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.90236448894413*^9, 3.902364493969314*^9}, {
+  3.9023645306588306`*^9, 3.90236453263667*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"94cdba59-1911-4a0e-9077-17561646205c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["OpaqueRawPointer",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"182cdc950\"", "\"16\""], 
+                    ShowStringCharacters -> False], 6489491792, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"182cdc950\"", "\"16\""], 
+                    ShowStringCharacters -> False], 6489491792, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  OpaqueRawPointer[6489491792],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.902364491764735*^9, 3.9023644942296*^9}, {
+  3.9023645281572657`*^9, 3.90236453291943*^9}, {3.9023645696605062`*^9, 
+  3.902364571001128*^9}},
+ CellLabel->"Out[50]=",ExpressionUUID->"0660cbe2-8e3d-4848-b1d3-83fb1d44bc5b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ForeignFunctionLoad", "[", 
+   RowBox[{
+    RowBox[{"getFuncPtr", "[", "\"\<sin\>\"", "]"}], ",", 
+    RowBox[{
+     RowBox[{"{", "\"\<CDouble\>\"", "}"}], "->", "\"\<CDouble\>\""}]}], 
+   "]"}], "[", "2.3", "]"}]], "Input",
+ CellChangeTimes->{{3.902364577974022*^9, 3.902364606880321*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"eceb4cab-e75b-4152-a848-f983156c2814"],
+
+Cell[BoxData["0.7457052121767204`"], "Output",
+ CellChangeTimes->{{3.902364596231933*^9, 3.902364607131452*^9}},
+ CellLabel->"Out[56]=",ExpressionUUID->"46e42651-45da-423a-b129-b4b80618f6a3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sin", "[", "2.3", "]"}]], "Input",
+ CellChangeTimes->{{3.902364608503317*^9, 3.90236460946413*^9}},
+ CellLabel->"In[57]:=",ExpressionUUID->"60ea6dfd-070b-40c9-87e6-538b25a22ba4"],
+
+Cell[BoxData["0.7457052121767204`"], "Output",
+ CellChangeTimes->{3.902364609718678*^9},
+ CellLabel->"Out[57]=",ExpressionUUID->"b0218aee-ac0b-4936-91ce-27ba940fda5d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ForeignFunctionLoad", "[", 
+   RowBox[{
+    RowBox[{"getFuncPtr", "[", "\"\<atan\>\"", "]"}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<CDouble\>\"", ",", "\"\<CDouble\>\""}], "}"}], "->", 
+     "\"\<CDouble\>\""}]}], "]"}], "[", 
+  RowBox[{"2.3", ",", "4.5"}], "]"}]], "Input",
+ CellChangeTimes->{{3.902364982455749*^9, 3.9023650020146837`*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"f8989e15-78af-4d92-99a9-92bef67800f4"],
+
+Cell[BoxData["1.1606689862534056`"], "Output",
+ CellChangeTimes->{{3.902364983566968*^9, 3.902365005641123*^9}},
+ CellLabel->"Out[63]=",ExpressionUUID->"8b6abbca-8f2b-4ccf-952d-c706b17c9feb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pthreadCreateC", "=", 
+  RowBox[{"ForeignFunctionLoad", "[", 
+   RowBox[{
+    RowBox[{"getFuncPtr", "[", "\"\<pthread_create\>\"", "]"}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<OpaqueRawPointer\>\"", ",", "\"\<OpaqueRawPointer\>\"", ",", 
+       "\"\<OpaqueRawPointer\>\"", ",", 
+       RowBox[{"\"\<RawPointer\>\"", "::[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<CInt\>\"", ",", "\"\<CLong\>\""}], "}"}], "]"}]}], 
+      "}"}], "->", "\"\<CInt\>\""}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.902364703740727*^9, 3.902364712119123*^9}, {
+   3.9023649433408413`*^9, 3.9023649750111856`*^9}, {3.9023650181054296`*^9, 
+   3.902365037030249*^9}, 3.902365181157526*^9},
+ CellLabel->"In[74]:=",ExpressionUUID->"4119d25e-f75c-4ac3-b4ce-c3bcfb737214"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["ForeignFunction",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"name: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["None", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{
+                    "\"OpaqueRawPointer\"", ",", "\"OpaqueRawPointer\"", ",", 
+                    "\"OpaqueRawPointer\"", ",", 
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"RawPointer\"", "]"}], 
+                    "[", 
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"ListTuple\"", "]"}], "[", 
+                    RowBox[{"\"CInt\"", ",", "\"CLong\""}], "]"}], "]"}]}], 
+                    "}"}], "\[Rule]", "\"CInt\""}], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"name: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["None", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{
+                    "\"OpaqueRawPointer\"", ",", "\"OpaqueRawPointer\"", ",", 
+                    "\"OpaqueRawPointer\"", ",", 
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"RawPointer\"", "]"}], 
+                    "[", 
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"ListTuple\"", "]"}], "[", 
+                    RowBox[{"\"CInt\"", ",", "\"CLong\""}], "]"}], "]"}]}], 
+                    "}"}], "\[Rule]", "\"CInt\""}], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"library: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["None", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  ForeignFunction[None, None, 
+   DataStructure["RawForeignFunction", $Failed]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.90236501995242*^9, 3.902365037356893*^9}, 
+   3.902365181474361*^9},
+ CellLabel->"Out[74]=",ExpressionUUID->"fc26a17e-16b5-4c50-abfc-aff50103de1d"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"thread", "=", 
+   RowBox[{"RawMemoryAllocate", "[", 
+    RowBox[{"\"\<UnsignedInteger8\>\"", ",", "1000"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.9023650445974293`*^9, 3.902365061529499*^9}},
+ CellLabel->"In[68]:=",ExpressionUUID->"2fe3bcb9-ece0-43b9-b588-b68c16d0e8dc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"callback", "=", 
+   RowBox[{"CreateForeignCallback", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Echo", "[", 
+       RowBox[{"#1", ",", "#2"}], "]"}], "&"}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<CInt\>\"", ",", "\"\<CLong\>\""}], "}"}], "->", 
+      "\"\<OpaqueRawPointer\>\""}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.902365088551186*^9, 3.902365126237627*^9}},
+ CellLabel->"In[70]:=",ExpressionUUID->"618e6d1e-4f8a-4ce3-ba14-e633952bc820"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"args", "=", 
+  RowBox[{"RawMemoryExport", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "4"}], "}"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\"\<CInt\>\"", ",", "\"\<CLong\>\""}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.902365131075563*^9, 3.9023651518959837`*^9}},
+ CellLabel->"In[75]:=",ExpressionUUID->"5c2c6507-276f-4488-b420-1d7fafd4dffb"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["ManagedObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GridBox[{{
+               TagBox[
+                InterpretationBox[
+                 RowBox[{
+                   TagBox["RawPointer", "SummaryHead"], "[", 
+                   
+                   DynamicModuleBox[{
+                    Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+                    TemplateBox[{
+                    PaneSelectorBox[{False -> GridBox[{{
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"ListTuple\"", "]"}], "[", 
+                    RowBox[{"\"CInt\"", ",", "\"CLong\""}], "]"}], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox[
+                    InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"129077950\"", "\"16\""], 
+                    ShowStringCharacters -> False], 4983322960, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}], True -> GridBox[{{
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"ListTuple\"", "]"}], "[", 
+                    RowBox[{"\"CInt\"", ",", "\"CLong\""}], "]"}], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox[
+                    InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"129077950\"", "\"16\""], 
+                    ShowStringCharacters -> False], 4983322960, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}]}, 
+                    Dynamic[Typeset`open$$], ImageSize -> Automatic]}, 
+                    "SummaryPanel"], DynamicModuleValues :> {}], "]"}], 
+                 RawPointer[4983322960, 
+                  TypeSpecifier["ListTuple"]["CInt", "CLong"]], Selectable -> 
+                 False, Editable -> False, SelectWithContents -> True], 
+                "SummaryItem"]}, {
+               RowBox[{
+                 TagBox["\"active: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["True", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GridBox[{{
+               TagBox[
+                InterpretationBox[
+                 RowBox[{
+                   TagBox["RawPointer", "SummaryHead"], "[", 
+                   
+                   DynamicModuleBox[{
+                    Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+                    TemplateBox[{
+                    PaneSelectorBox[{False -> GridBox[{{
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"ListTuple\"", "]"}], "[", 
+                    RowBox[{"\"CInt\"", ",", "\"CLong\""}], "]"}], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox[
+                    InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"129077950\"", "\"16\""], 
+                    ShowStringCharacters -> False], 4983322960, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}], True -> GridBox[{{
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"ListTuple\"", "]"}], "[", 
+                    RowBox[{"\"CInt\"", ",", "\"CLong\""}], "]"}], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox[
+                    InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"129077950\"", "\"16\""], 
+                    ShowStringCharacters -> False], 4983322960, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}]}, 
+                    Dynamic[Typeset`open$$], ImageSize -> Automatic]}, 
+                    "SummaryPanel"], DynamicModuleValues :> {}], "]"}], 
+                 RawPointer[4983322960, 
+                  TypeSpecifier["ListTuple"]["CInt", "CLong"]], Selectable -> 
+                 False, Editable -> False, SelectWithContents -> True], 
+                "SummaryItem"]}, {
+               RowBox[{
+                 TagBox["\"active: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["True", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"freeing function: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["RawMemoryFree", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"base value: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  InterpretationBox[
+                   RowBox[{
+                    TagBox["RawPointer", "SummaryHead"], "[", 
+                    
+                    DynamicModuleBox[{
+                    Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+                    TemplateBox[{
+                    PaneSelectorBox[{False -> GridBox[{{
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"ListTuple\"", "]"}], "[", 
+                    RowBox[{"\"CInt\"", ",", "\"CLong\""}], "]"}], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox[
+                    InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"129077950\"", "\"16\""], 
+                    ShowStringCharacters -> False], 4983322960, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}], True -> GridBox[{{
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"type: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{
+                    RowBox[{"TypeSpecifier", "[", "\"ListTuple\"", "]"}], "[", 
+                    RowBox[{"\"CInt\"", ",", "\"CLong\""}], "]"}], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"address: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox[
+                    InterpretationBox[
+                    StyleBox[
+                    SubscriptBox["\"129077950\"", "\"16\""], 
+                    ShowStringCharacters -> False], 4983322960, Editable -> 
+                    False], BaseForm[#, 16]& ], "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}]}, 
+                    Dynamic[Typeset`open$$], ImageSize -> Automatic]}, 
+                    "SummaryPanel"], DynamicModuleValues :> {}], "]"}], 
+                   RawPointer[4983322960, 
+                    TypeSpecifier["ListTuple"]["CInt", "CLong"]], Selectable -> 
+                   False, Editable -> False, SelectWithContents -> True], 
+                  "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  ManagedObject[
+   RawPointer[4983322960, 
+    TypeSpecifier["ListTuple"]["CInt", "CLong"]], 
+   RawPointer[4983322960, 
+    TypeSpecifier["ListTuple"]["CInt", "CLong"]], RawMemoryFree],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.902365145698449*^9, 3.902365152222204*^9}, 
+   3.902365185908915*^9},
+ CellLabel->"Out[75]=",ExpressionUUID->"8f2bccfb-0af0-43c7-aadf-0f4fd2f05643"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pthreadCreateC", "[", 
+  RowBox[{"thread", ",", 
+   RowBox[{"OpaqueRawPointer", "[", "0", "]"}], ",", "callback", ",", 
+   "args"}], "]"}]], "Input",
+ CellChangeTimes->{{3.902365038285658*^9, 3.902365085272387*^9}, {
+  3.902365128613455*^9, 3.902365155343341*^9}},
+ CellLabel->"In[76]:=",ExpressionUUID->"08d21748-4bff-480a-9a8f-f965f9e6d0a2"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.90236515604865*^9, 3.902365186724082*^9},
+ CellLabel->"Out[76]=",ExpressionUUID->"976ea488-bf47-4658-ad5d-12946b6974b4"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
 Cell["Notes", "Section",
  CellChangeTimes->{{3.902336686976902*^9, 
   3.902336687574793*^9}},ExpressionUUID->"1742dfb1-9253-4dc5-be3c-\
 589d4eff8859"]
 },
 WindowSize->{808, 911},
-WindowMargins->{{123, Automatic}, {224, Automatic}},
+WindowMargins->{{64, Automatic}, {51, Automatic}},
 FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (August 2, 2023)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"b5ccd0f6-9212-4e24-b70e-aa44f5dc54d1"
@@ -15214,31 +16558,99 @@ Cell[1274, 40, 241, 4, 30, "Input",ExpressionUUID->"1f16b939-7042-4ecf-94ef-93fd
 Cell[CellGroupData[{
 Cell[1552, 49, 156, 3, 53, "Section",ExpressionUUID->"66cda37e-6262-4496-a465-7d4ef865cce4"],
 Cell[CellGroupData[{
-Cell[1733, 56, 249, 4, 30, "Input",ExpressionUUID->"d5b6c59c-638d-42c8-b199-c7572fef1c0e"],
+Cell[1733, 56, 152, 3, 54, "Subsection",ExpressionUUID->"9bd30edd-ad6a-4cc7-a9d9-988a793a470d"],
 Cell[CellGroupData[{
-Cell[2007, 64, 5699, 123, 54, "Echo",ExpressionUUID->"6e96fcab-66a4-4f3d-98c1-547df2217f82"],
-Cell[7709, 189, 4146, 94, 50, "Echo",ExpressionUUID->"64ea440e-4d02-4278-99e8-c4ae7e0cc9cb"],
-Cell[11858, 285, 5699, 123, 54, "Echo",ExpressionUUID->"ce008b4d-5613-4760-9238-a929b7b2a73e"],
-Cell[17560, 410, 4148, 94, 50, "Echo",ExpressionUUID->"a8e0a39d-792e-4a94-9370-0ee98fbb034c"]
+Cell[1910, 63, 249, 4, 30, "Input",ExpressionUUID->"d5b6c59c-638d-42c8-b199-c7572fef1c0e"],
+Cell[CellGroupData[{
+Cell[2184, 71, 5699, 123, 54, "Echo",ExpressionUUID->"6e96fcab-66a4-4f3d-98c1-547df2217f82"],
+Cell[7886, 196, 4146, 94, 50, "Echo",ExpressionUUID->"64ea440e-4d02-4278-99e8-c4ae7e0cc9cb"],
+Cell[12035, 292, 5699, 123, 54, "Echo",ExpressionUUID->"ce008b4d-5613-4760-9238-a929b7b2a73e"],
+Cell[17737, 417, 4148, 94, 50, "Echo",ExpressionUUID->"a8e0a39d-792e-4a94-9370-0ee98fbb034c"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[21757, 510, 1195, 25, 178, "Input",ExpressionUUID->"e6f1b4f1-ca66-4530-8cf3-d7bd26d6ce9d"],
+Cell[21934, 517, 1195, 25, 178, "Input",ExpressionUUID->"e6f1b4f1-ca66-4530-8cf3-d7bd26d6ce9d"],
 Cell[CellGroupData[{
-Cell[22977, 539, 5602, 120, 54, "Echo",ExpressionUUID->"18c82af2-2857-449a-9eb7-9f6c5a66c70d"],
-Cell[28582, 661, 4500, 100, 51, "Echo",ExpressionUUID->"71bb3bf0-0032-4cde-9335-1dc73a6ff5f4"],
-Cell[33085, 763, 5624, 121, 54, "Echo",ExpressionUUID->"8f7d9b25-44d5-4376-ac6c-7d1c37ca1001"],
-Cell[38712, 886, 4179, 94, 50, "Echo",ExpressionUUID->"cb5458e1-d5a6-40a2-b72d-7179c9b2a724"],
-Cell[42894, 982, 5626, 121, 54, "Echo",ExpressionUUID->"e5439d56-8aca-4b40-ad76-776924623069"],
-Cell[48523, 1105, 4177, 94, 50, "Echo",ExpressionUUID->"9996d0aa-9f60-418a-9ed8-4462bc71c964"],
-Cell[52703, 1201, 5614, 121, 54, "Echo",ExpressionUUID->"59c53345-5967-43d3-a9c6-007241f2175c"],
-Cell[58320, 1324, 4865, 105, 51, "Echo",ExpressionUUID->"7458667c-178a-4804-9a2d-b99bef795204"],
-Cell[63188, 1431, 5614, 121, 54, "Echo",ExpressionUUID->"e7b4521f-8be5-43b1-938c-bd487d264602"],
-Cell[68805, 1554, 829502, 13626, 50, "Echo",ExpressionUUID->"6bf12d37-1d52-4faf-9a38-89e6e4627eea"]
+Cell[23154, 546, 5602, 120, 54, "Echo",ExpressionUUID->"18c82af2-2857-449a-9eb7-9f6c5a66c70d"],
+Cell[28759, 668, 4500, 100, 51, "Echo",ExpressionUUID->"71bb3bf0-0032-4cde-9335-1dc73a6ff5f4"],
+Cell[33262, 770, 5624, 121, 54, "Echo",ExpressionUUID->"8f7d9b25-44d5-4376-ac6c-7d1c37ca1001"],
+Cell[38889, 893, 4179, 94, 50, "Echo",ExpressionUUID->"cb5458e1-d5a6-40a2-b72d-7179c9b2a724"],
+Cell[43071, 989, 5626, 121, 54, "Echo",ExpressionUUID->"e5439d56-8aca-4b40-ad76-776924623069"],
+Cell[48700, 1112, 4177, 94, 50, "Echo",ExpressionUUID->"9996d0aa-9f60-418a-9ed8-4462bc71c964"],
+Cell[52880, 1208, 5614, 121, 54, "Echo",ExpressionUUID->"59c53345-5967-43d3-a9c6-007241f2175c"],
+Cell[58497, 1331, 4865, 105, 51, "Echo",ExpressionUUID->"7458667c-178a-4804-9a2d-b99bef795204"],
+Cell[63365, 1438, 5614, 121, 54, "Echo",ExpressionUUID->"e7b4521f-8be5-43b1-938c-bd487d264602"],
+Cell[68982, 1561, 829502, 13626, 50, "Echo",ExpressionUUID->"6bf12d37-1d52-4faf-9a38-89e6e4627eea"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
-Cell[898346, 15185, 150, 3, 67, "Section",ExpressionUUID->"1742dfb1-9253-4dc5-be3c-589d4eff8859"]
+Cell[CellGroupData[{
+Cell[898545, 15194, 168, 3, 54, "Subsection",ExpressionUUID->"db864205-8281-4f87-8c88-bbcd5690de07"],
+Cell[CellGroupData[{
+Cell[898738, 15201, 241, 4, 30, "Input",ExpressionUUID->"dcbef42d-897f-44d1-b609-32a5e5d3f71a"],
+Cell[898982, 15207, 407, 10, 28, "Message",ExpressionUUID->"52ccbccf-98fe-4960-96a8-955ecce6e156"],
+Cell[899392, 15219, 241, 4, 34, "Output",ExpressionUUID->"68163993-aafd-44d5-85df-a3de5860b6bf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[899670, 15228, 301, 6, 30, "Input",ExpressionUUID->"76e42c2e-934d-40c6-8be0-d1afd046dc37"],
+Cell[899974, 15236, 423, 9, 28, "Message",ExpressionUUID->"735c6256-9259-4cca-9760-3223fd14a7e8"],
+Cell[900400, 15247, 6640, 137, 63, "Output",ExpressionUUID->"1ca56667-dc9a-4272-b8e4-8a047234ac74"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[907077, 15389, 350, 6, 30, "Input",ExpressionUUID->"81e24e12-e474-43b4-9b3e-a76181ec488d"],
+Cell[907430, 15397, 396, 9, 28, "Message",ExpressionUUID->"a62db627-0627-48a7-8e61-20dfe41255f6"],
+Cell[907829, 15408, 6613, 137, 63, "Output",ExpressionUUID->"f27170c9-a706-4b7e-a8f2-ed738fdd48af"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[914479, 15550, 561, 12, 73, "Input",ExpressionUUID->"c94535b5-7681-449a-a8e7-7df5e11d21c9"],
+Cell[915043, 15564, 2974, 65, 49, "Output",ExpressionUUID->"6b4eac80-7c29-4a86-8b03-27e3d19486de"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[918054, 15634, 691, 13, 199, "Input",ExpressionUUID->"b9ea5dcc-bd2e-47fe-8c05-8963511ea365"],
+Cell[918748, 15649, 386, 5, 56, "Output",ExpressionUUID->"d02557bb-409c-400e-a551-3b0907f6ea72"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[919171, 15659, 510, 10, 52, "Input",ExpressionUUID->"10b10d24-bba7-4743-aa8f-dfd222856802"],
+Cell[919684, 15671, 5014, 105, 61, "Output",ExpressionUUID->"8811fe3d-8fa3-45ff-87bf-3b9b181fd81a"]
+}, Open  ]],
+Cell[924713, 15779, 372, 8, 30, "Input",ExpressionUUID->"e08afd40-c915-4010-9ca7-2640310c2ba4"],
+Cell[CellGroupData[{
+Cell[925110, 15791, 269, 4, 30, "Input",ExpressionUUID->"940ac788-414e-4272-b826-83865ed54952"],
+Cell[925382, 15797, 3050, 66, 49, "Output",ExpressionUUID->"2143e9bc-a695-4e86-8933-afb018345ca3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[928469, 15868, 278, 4, 30, "Input",ExpressionUUID->"94cdba59-1911-4a0e-9077-17561646205c"],
+Cell[928750, 15874, 3121, 67, 49, "Output",ExpressionUUID->"0660cbe2-8e3d-4848-b1d3-83fb1d44bc5b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[931908, 15946, 404, 9, 30, "Input",ExpressionUUID->"eceb4cab-e75b-4152-a848-f983156c2814"],
+Cell[932315, 15957, 191, 2, 34, "Output",ExpressionUUID->"46e42651-45da-423a-b129-b4b80618f6a3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[932543, 15964, 202, 3, 30, "Input",ExpressionUUID->"60ea6dfd-070b-40c9-87e6-538b25a22ba4"],
+Cell[932748, 15969, 167, 2, 34, "Output",ExpressionUUID->"b0218aee-ac0b-4936-91ce-27ba940fda5d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[932952, 15976, 475, 11, 30, "Input",ExpressionUUID->"f8989e15-78af-4d92-99a9-92bef67800f4"],
+Cell[933430, 15989, 191, 2, 34, "Output",ExpressionUUID->"8b6abbca-8f2b-4ccf-952d-c706b17c9feb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[933658, 15996, 800, 17, 73, "Input",ExpressionUUID->"4119d25e-f75c-4ac3-b4ce-c3bcfb737214"],
+Cell[934461, 16015, 5348, 115, 80, "Output",ExpressionUUID->"fc26a17e-16b5-4c50-abfc-aff50103de1d"]
+}, Open  ]],
+Cell[939824, 16133, 318, 7, 30, "Input",ExpressionUUID->"2fe3bcb9-ece0-43b9-b588-b68c16d0e8dc"],
+Cell[940145, 16142, 514, 13, 30, "Input",ExpressionUUID->"618e6d1e-4f8a-4ce3-ba14-e633952bc820"],
+Cell[CellGroupData[{
+Cell[940684, 16159, 421, 11, 30, "Input",ExpressionUUID->"5c2c6507-276f-4488-b420-1d7fafd4dffb"],
+Cell[941108, 16172, 16822, 336, 89, "Output",ExpressionUUID->"8f2bccfb-0af0-43c7-aadf-0f4fd2f05643"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[957967, 16513, 367, 7, 30, "Input",ExpressionUUID->"08d21748-4bff-480a-9a8f-f965f9e6d0a2"],
+Cell[958337, 16522, 170, 2, 34, "Output",ExpressionUUID->"976ea488-bf47-4658-ad5d-12946b6974b4"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[958546, 16529, 150, 3, 67, "Section",ExpressionUUID->"1742dfb1-9253-4dc5-be3c-589d4eff8859"]
 }
 ]
 *)
