@@ -44,6 +44,44 @@ jobs:
         if-no-files-found: error
 
 
+  build-uwebsockets-mac-arm: 
+    name: Build uWebSockets (macOS ARM)
+    runs-on: self-hosted
+    
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3.6.0
+      with:
+        repository: uNetworking/uWebSockets
+        path: uWebSockets
+        submodules: true
+
+    - name: Install dependencies
+      run: |
+        brew install libuv
+
+    - name: Make
+      run: |
+        # Unclear if this first make is needed.
+        cd uWebSockets
+        make capi
+        cd capi
+        make
+
+    - name: Build dynamic library
+      run: |
+        cd uWebSockets/capi
+        clang -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: uwebsockets-build-macos-arm
+        path: uWebSockets/capi/libuwebsockets.dylib
+        if-no-files-found: error
+
+
   build-uwebsockets-linux: 
     name: Build uWebSockets (Linux)
     runs-on: ubuntu-latest
@@ -109,7 +147,10 @@ jobs:
         $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
         $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
         $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
-        $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1';
+        $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'
+        nmake
+        ls
+        ls capi
         nmake capi
         ls
         cd capi
