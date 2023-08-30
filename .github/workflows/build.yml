@@ -87,10 +87,10 @@ jobs:
     name: Build uWebSockets (Windows)
     runs-on: windows-latest
 
-    defaults:
-      run:
-        # shell: msys2 {0}
-        shell: bash
+    # defaults:
+    #   run:
+    #     # shell: msys2 {0}
+    #     shell: bash
     
     steps:
 
@@ -101,11 +101,16 @@ jobs:
         path: uWebSockets
         submodules: true
 
-    - name: Setup MSYS2
-      uses: msys2/setup-msys2@v2
-
-    - name: Add Msys64 to PATH
-      run: echo "::add-path::/c/msys64/mingw64/bin:/c/msys64/usr/bin"
+    - uses: ilammy/msvc-dev-cmd@v1
+    
+    - name: Build examples
+      run: |
+        cd uWebSockets
+        $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
+        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
+        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
+        $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'; nmake
+        ls
 
     # - name: Install dependencies
     #   run: |
@@ -114,7 +119,7 @@ jobs:
     - name: Make
       run: |
         cd uWebSockets
-        make
+        # make
         # make capi
         # cd capi
         # make
