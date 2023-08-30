@@ -34,7 +34,7 @@ jobs:
     - name: Build dynamic library
       run: |
         cd uWebSockets/capi
-        clang -O3 -flto *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
+        clang -O3 -flto *.o --shared -o libuwebsockets.dylib
         # clang -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
 
     - name: Upload artifacts
