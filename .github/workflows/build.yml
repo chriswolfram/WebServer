@@ -17,6 +17,7 @@ jobs:
     - name: Make
       run: |
         mkdir build
+        cd build
         cmake .. -DSYSTEM_ID=MacOSX-x86
         make
         make install
