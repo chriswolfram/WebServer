@@ -1,0 +1,105 @@
+name: Build
+on:
+  pull_request:
+    branches: ["master"]
+  push:
+  workflow_dispatch:
+jobs:
+
+  build-uwebsockets-linux: 
+    name: Build uWebSockets (Linux)
+    runs-on: ubuntu-latest
+    
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3.6.0
+      with:
+        repository: uNetworking/uWebSockets
+        path: uWebSockets
+        submodules: true
+            
+    
+    # - uses: actions/download-artifact@v3
+    #   with:
+    #     name: libffi-autogen
+          
+    # - name: Configure libffi
+    #   shell: bash
+    #   run: |
+    #     tar -xvf libffi.tar
+    #     cd libffi
+    #     mkdir source-build
+    #     cd source-build          
+    #     mkdir build
+    #     ../configure --disable-docs --prefix $PWD/build LDFLAGS=-Wl,-rpath,"@loader_path"
+      
+    # - name: Run make
+    #   shell: bash
+    #   run: |
+    #     export SHELL="/bin/sh"
+    #     cd libffi
+    #     cd source-build
+    #     make install
+          
+    # - name: Upload libffi built artifacts
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: libffi-build-Linux
+    #     path: libffi/source-build/build/
+    #     if-no-files-found: error
+    
+    # - name: Upload libffi core library artifacts
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: libffi-core-build-Linux
+    #     path: libffi/source-build/build/lib/libffi.*
+    #     if-no-files-found: error
+        
+
+  # final-assembly:
+  #   name: Final paclet assembly
+    
+  #   needs:
+  #   - build-libffi-linux
+  #   - build-libffi-macos
+  #   - build-constants-linux
+  #   - build-constants-macos
+    
+  #   runs-on: ubuntu-latest
+      
+  #   steps:
+      
+  #   - uses: actions/checkout@v3
+    
+  #   - name: Download macOS libffi builds
+  #     uses: actions/download-artifact@v3
+  #     with:
+  #       name: libffi-core-build-macOS
+  #       path: ForeignFunctionInterface/LibraryResources/MacOSX-x86-64/
+        
+  #   - name: Download macOS constants
+  #     uses: actions/download-artifact@v3
+  #     with:
+  #       name: ffiConstants-macOS
+  #       path: ForeignFunctionInterface/LibraryResources/MacOSX-x86-64/
+        
+  #   - name: Download Linux libffi builds
+  #     uses: actions/download-artifact@v3
+  #     with:
+  #       name: libffi-core-build-Linux
+  #       path: ForeignFunctionInterface/LibraryResources/Linux-x86-64/
+        
+  #   - name: Download Linux constants
+  #     uses: actions/download-artifact@v3
+  #     with:
+  #       name: ffiConstants-Linux
+  #       path: ForeignFunctionInterface/LibraryResources/Linux-x86-64/
+        
+  #   - name: Upload final paclet
+  #     uses: actions/upload-artifact@v3
+  #     with:
+  #       name: ForeignFunctionInterface
+  #       path: ForeignFunctionInterface/
+  #       if-no-files-found: error
+    
