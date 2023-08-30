@@ -20,15 +20,15 @@ jobs:
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-x86-64 -DCMAKE_OSX_ARCHITECTURES=arm64 ..
 
-    - name: make
+    - name: Build
       run: |
         cd build
-        make
+        cmake --build .
 
-    - name: make install
+    - name: Install
       run: |
         cd build
-        make install
+        cmake --install .
 
     - uses: actions/upload-artifact@v3
       with:
@@ -51,15 +51,15 @@ jobs:
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=x86_64 ..
 
-    - name: make
+    - name: Build
       run: |
         cd build
-        make
+        cmake --build .
 
-    - name: make install
+    - name: Install
       run: |
         cd build
-        make install
+        cmake --install .
 
     - uses: actions/upload-artifact@v3
       with:
@@ -112,7 +112,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        vcpkg install zlib libuv:x64-windows
+        vcpkg install zlib:x64-windows libuv:x64-windows
         vcpkg integrate install
 
     - name: cmake
