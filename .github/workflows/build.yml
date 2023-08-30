@@ -21,7 +21,10 @@ jobs:
 
     - name: Make
       run: |
+        # Unclear if this first make is needed.
         cd uWebSockets
+        make capi
+        cd capi
         make
     
     # - uses: actions/download-artifact@v3
