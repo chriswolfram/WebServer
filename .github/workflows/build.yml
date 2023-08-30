@@ -133,42 +133,48 @@ jobs:
     
     steps:
 
-    - name: Checkout
-      uses: actions/checkout@v3.6.0
-      with:
-        repository: uNetworking/uWebSockets
-        path: uWebSockets
-        submodules: true
+    # - name: Checkout
+    #   uses: actions/checkout@v3.6.0
+    #   with:
+    #     repository: uNetworking/uWebSockets
+    #     path: uWebSockets
+    #     submodules: true
 
-    - name: Install libuv
-      run: |
-        vcpkg install libuv:x64-windows
-        cp C:\vcpkg\installed\x64-windows\bin\uv.dll uWebSockets\uv.dll
+    # - name: Install libuv
+    #   run: |
+    #     vcpkg install libuv:x64-windows
+    #     cp C:\vcpkg\installed\x64-windows\bin\uv.dll uWebSockets\uv.dll
 
-    - uses: ilammy/msvc-dev-cmd@v1
+    # - uses: ilammy/msvc-dev-cmd@v1
     
-    - name: Make
-      run: |
-        cd uWebSockets
-        $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
-        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
-        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
-        $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'
-        nmake
-        ls
-        ls capi
-        nmake capi
-        ls
-        cd capi
-        ls
-        nmake
+    # - name: Make
+    #   run: |
+    #     cd uWebSockets
+    #     $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
+    #     $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
+    #     $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
+    #     $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'
+    #     nmake
+    #     ls
+    #     ls capi
+    #     nmake capi
+    #     ls
+    #     cd capi
+    #     ls
+    #     nmake
 
-    - name: Build dynamic library
+    # - name: Build dynamic library
+    #   run: |
+    #     cd uWebSockets/capi
+    #     ls
+    #     gcc -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dll
+    #     ls
+
+    - name: Install uWebSockets
       run: |
-        cd uWebSockets/capi
+        vcpkg install uwebsockets
         ls
-        gcc -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dll
-        ls
+        ls C:\vcpkg\installed\x64-windows\
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
