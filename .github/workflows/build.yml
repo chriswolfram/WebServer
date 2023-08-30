@@ -89,7 +89,8 @@ jobs:
 
     defaults:
       run:
-        shell: msys2 {0}
+        # shell: msys2 {0}
+        shell: bash
     
     steps:
 
@@ -102,6 +103,9 @@ jobs:
 
     - name: Setup MSYS2
       uses: msys2/setup-msys2@v2
+
+    - name: Add Msys64 to PATH
+      run: echo "::add-path::/c/msys64/mingw64/bin:/c/msys64/usr/bin"
 
     # - name: Install dependencies
     #   run: |
