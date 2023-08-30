@@ -218,6 +218,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: WebServer
-          path: deployed/WebServer/
+          path: deployed/
           if-no-files-found: error
     
