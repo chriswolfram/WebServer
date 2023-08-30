@@ -60,14 +60,12 @@ jobs:
     - name: Install dependencies
       run: |
         brew install libuv
-
-    - name: Set search paths
+        
+    - name: Make
       run: |
         export CPATH=/opt/homebrew/include 
         export LIBRARY_PATH=/opt/homebrew/lib
         
-    - name: Make
-      run: |
         # Unclear if this first make is needed.
         cd uWebSockets
         make capi
@@ -76,6 +74,9 @@ jobs:
 
     - name: Build dynamic library
       run: |
+        export CPATH=/opt/homebrew/include 
+        export LIBRARY_PATH=/opt/homebrew/lib
+        
         cd uWebSockets/capi
         clang -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
 
