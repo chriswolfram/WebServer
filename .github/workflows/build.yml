@@ -21,7 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        brew install libuv zlib
+        brew install libuv
 
     - name: Make
       run: |
@@ -57,9 +57,9 @@ jobs:
         path: uWebSockets
         submodules: true
 
-    # - name: Install dependencies
-    #   run: |
-    #     sudo apt-get install libuv zlib
+    - name: Install dependencies
+      run: |
+        sudo apt-get install libuv-dev
 
     - name: Make
       run: |
