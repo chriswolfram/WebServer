@@ -34,9 +34,15 @@ jobs:
     - name: Build dynamic library
       run: |
         cd uWebSockets/capi
-        ls
         clang -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
-        ls
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: uwebsockets-build-macos
+        path: uWebSockets/capi/libuwebsockets.dylib
+        if-no-files-found: error
+
 
   build-uwebsockets-linux: 
     name: Build uWebSockets (Linux)
@@ -67,8 +73,15 @@ jobs:
       run: |
         cd uWebSockets/capi
         ls
-        gcc -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
+        gcc -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.so
         ls
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: uwebsockets-build-linux
+        path: uWebSockets/capi/libuwebsockets.so
+        if-no-files-found: error
     
     # - uses: actions/download-artifact@v3
     #   with:
