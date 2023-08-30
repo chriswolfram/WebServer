@@ -6,6 +6,28 @@ on:
   workflow_dispatch:
 jobs:
 
+  build-uwebsockets-mac-new: 
+    name: Build uWebSockets (macOS) - CMAKE
+    runs-on: macos-latest
+    
+    steps:
+
+    - uses: actions/checkout@v3.6.0
+
+    - name: Make
+      run: |
+        mkdir build
+        cmake .. -DSYSTEM_ID=MacOSX-x86
+        make
+        make install
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: build-macos
+        path: WebServer
+        if-no-files-found: error
+
+
   build-uwebsockets-mac: 
     name: Build uWebSockets (macOS)
     runs-on: macos-latest
