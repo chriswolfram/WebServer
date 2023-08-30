@@ -82,15 +82,15 @@ jobs:
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Linux-x86-64 ..
 
-    - name: make
+    - name: Build
       run: |
         cd build
-        make
+        cmake --build .
 
-    - name: make install
+    - name: Install
       run: |
         cd build
-        make install
+        cmake --install .
 
     - uses: actions/upload-artifact@v3
       with:
@@ -119,15 +119,15 @@ jobs:
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_LIBRARY=/usr/lib/libz.dll.a ..
 
-    - name: make
+    - name: Build
       run: |
         cd build
-        nmake
+        cmake --build .
 
-    - name: make install
+    - name: Install
       run: |
         cd build
-        nmake install
+        cmake --install .
 
     - uses: actions/upload-artifact@v3
       with:
