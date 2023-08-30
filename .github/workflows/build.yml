@@ -18,7 +18,11 @@ jobs:
         repository: uNetworking/uWebSockets
         path: uWebSockets
         submodules: true
-            
+
+    - name: Make
+      run: |
+        cd uWebSockets
+        make
     
     # - uses: actions/download-artifact@v3
     #   with:
