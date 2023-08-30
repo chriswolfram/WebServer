@@ -19,6 +19,10 @@ jobs:
         path: uWebSockets
         submodules: true
 
+    - name: Install dependencies
+      run: |
+        brew install libuv libz
+
     - name: Make
       run: |
         # Unclear if this first make is needed.
