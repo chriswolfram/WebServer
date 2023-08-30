@@ -51,9 +51,9 @@ jobs:
         path: uWebSockets
         submodules: true
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get install libuv zlib
+    # - name: Install dependencies
+    #   run: |
+    #     sudo apt-get install libuv zlib
 
     - name: Make
       run: |
