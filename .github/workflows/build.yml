@@ -28,7 +28,7 @@ jobs:
       run: |
         ls
         ls WebServer
-        ls WebServer/build
+        ls build
 
     - name: make
       run: |
