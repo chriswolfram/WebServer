@@ -34,7 +34,7 @@ jobs:
     - name: Build dynamic library
       run: |
         cd uWebSockets/capi
-        clang -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
+        clang -O3 -flto *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -78,8 +78,7 @@ jobs:
         export LIBRARY_PATH=/opt/homebrew/lib
         
         cd uWebSockets/capi
-        clang -O3 -flto *.o ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
-        # clang -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
+        clang -O3 -flto *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.dylib
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
@@ -118,7 +117,7 @@ jobs:
       run: |
         cd uWebSockets/capi
         ls
-        gcc -O3 -flto -I ../src -I ../uSockets/src *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.so
+        gcc -O3 -flto *.o -lz -luv -lssl -lcrypto -lstdc++ ../uSockets/uSockets.a --shared -o libuwebsockets.so
         ls
 
     - name: Upload artifacts
