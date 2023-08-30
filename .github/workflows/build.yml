@@ -111,7 +111,9 @@ jobs:
       uses: ilammy/msvc-dev-cmd@v1.12.1
 
     - name: Install dependencies
-      run: vcpkg install zlib libuv:x64-windows
+      run: |
+        vcpkg install zlib libuv:x64-windows
+        vcpkg integrate install
 
     - name: cmake
       run: |
