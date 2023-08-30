@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 jobs:
 
-  build-uwebsockets-mac-new: 
-    name: Build uWebSockets (macOS) - CMAKE
+  build-uwebsockets-mac-arm: 
+    name: Build uWebSockets (macOS ARM)
     runs-on: macos-latest
     
     steps:
@@ -19,7 +19,41 @@ jobs:
         pwd
         mkdir build
         cd build
-        cmake .. -DSYSTEM_ID=MacOSX-x86
+        cmake .. -DSYSTEM_ID=MacOSX-x86-64 -DCMAKE_OSX_ARCHITECTURES=arm64
+
+    - name: make
+      run: |
+        pwd
+        cd build
+        make
+
+    - name: make install
+      run: |
+        pwd
+        cd build
+        make install
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: build-macos-arm
+        path: build/WebServer
+        if-no-files-found: error
+
+
+  build-uwebsockets-mac: 
+    name: Build uWebSockets (macOS)
+    runs-on: macos-latest
+    
+    steps:
+
+    - uses: actions/checkout@v3.6.0
+
+    - name: cmake
+      run: |
+        pwd
+        mkdir build
+        cd build
+        cmake .. -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=x86_64
 
     - name: make
       run: |
@@ -36,6 +70,74 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: build-macos
+        path: build/WebServer
+        if-no-files-found: error
+
+
+  build-uwebsockets-linux: 
+    name: Build uWebSockets (Linux)
+    runs-on: ubuntu-latest
+    
+    steps:
+
+    - uses: actions/checkout@v3.6.0
+
+    - name: cmake
+      run: |
+        pwd
+        mkdir build
+        cd build
+        cmake .. -DSYSTEM_ID=Linux-x86-64
+
+    - name: make
+      run: |
+        pwd
+        cd build
+        make
+
+    - name: make install
+      run: |
+        pwd
+        cd build
+        make install
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: build-linux
+        path: build/WebServer
+        if-no-files-found: error
+
+
+  build-uwebsockets-windows: 
+    name: Build uWebSockets (Windows)
+    runs-on: windows-latest
+    
+    steps:
+
+    - uses: actions/checkout@v3.6.0
+
+    - name: cmake
+      run: |
+        pwd
+        mkdir build
+        cd build
+        cmake .. -DSYSTEM_ID=Windows-x86-64
+
+    - name: make
+      run: |
+        pwd
+        cd build
+        make
+
+    - name: make install
+      run: |
+        pwd
+        cd build
+        make install
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: build-windows
         path: build/WebServer
         if-no-files-found: error
 
