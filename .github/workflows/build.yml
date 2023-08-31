@@ -21,12 +21,10 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-x86-64 -DCMAKE_OSX_ARCHITECTURES=arm64 ..
 
     - name: Build
-      run: |
-        cmake --build build
+      run: cmake --build build
 
     - name: Install
-      run: |
-        cmake --install build
+      run: cmake --install build
 
     - uses: actions/upload-artifact@v3
       with:
@@ -50,12 +48,10 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=x86_64 ..
 
     - name: Build
-      run: |
-        cmake --build build
+      run: cmake --build build
 
     - name: Install
-      run: |
-        cmake --install build
+      run: cmake --install build
 
     - uses: actions/upload-artifact@v3
       with:
@@ -79,12 +75,10 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Linux-x86-64 ..
 
     - name: Build
-      run: |
-        cmake --build build
+      run: cmake --build build
 
     - name: Install
-      run: |
-        cmake --install build
+      run: cmake --install build
 
     - uses: actions/upload-artifact@v3
       with:
@@ -106,26 +100,22 @@ jobs:
 
     - name: Install dependencies
       run: |
-        vcpkg install zlib:x64-windows libuv:x64-windows
+        # zlib:x64-windows
+        vcpkg install libuv:x64-windows
         vcpkg integrate install
 
     - name: cmake
       run: |
         mkdir build
         cd build
-        # -DCMAKE_BUILD_TYPE=Release
-        cmake -DSYSTEM_ID=Windows-x86-64 -DZLIB_LIBRARY=/usr/lib/libz.dll.a ..
+        # -DZLIB_LIBRARY=/usr/lib/libz.dll.a
+        cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 ..
 
     - name: Build
-      run: |
-        cmake --build build
-
-    - name: tree
-      run: tree .
+      run: cmake --build build
 
     - name: Install
-      run: |
-        cmake --install build
+      run: cmake --install build
 
     - uses: actions/upload-artifact@v3
       with:
