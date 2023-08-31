@@ -84,13 +84,11 @@ jobs:
 
     - name: Build
       run: |
-        cd build
-        cmake --build .
+        cmake --build build
 
     - name: Install
       run: |
-        cd build
-        cmake --install .
+        cmake --install build
 
     - uses: actions/upload-artifact@v3
       with:
@@ -123,13 +121,11 @@ jobs:
 
     - name: Build
       run: |
-        cd build
-        cmake --build .
+        cmake --build build
 
     - name: Install
       run: |
-        cd build
-        cmake --install .
+        cmake --install build
 
     - uses: actions/upload-artifact@v3
       with:
