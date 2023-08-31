@@ -17,11 +17,32 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(uWebSockets_content)
 
 # Add the CXX (header-only) library
-find_package(ZLIB REQUIRED)
+# set(ZLIB_USE_STATIC_LIBS "ON")
+# find_package(ZLIB REQUIRED)
 add_library(uWebSocketsCXX INTERFACE)
 target_include_directories(uWebSocketsCXX INTERFACE ${uwebsockets_content_SOURCE_DIR}/src/)
-target_link_libraries(uWebSocketsCXX INTERFACE uSockets ${ZLIB_LIBRARIES})
+target_link_libraries(uWebSocketsCXX INTERFACE uSockets zlib)
+# add_dependencies(uWebSocketsCXX zlib_project)
+# target_link_libraries(uWebSocketsCXX INTERFACE uSockets ${ZLIB_LIBRARIES})
 # target_link_libraries(uWebSocketsCXX INTERFACE uSockets)
+
+# if(TARGET zlib)
+#   message("ZLIB exists!")
+# else()
+#   message("ZLIB DOESN'T EXIST!")
+# endif()
+
+# if(TARGET uSockets)
+#   message("uSockets exists!")
+# else()
+#   message("uSockets DOESN'T EXIST!")
+# endif()
+
+# if(TARGET uWebSocketsCXX)
+#   message("uWebSocketsCXX exists!")
+# else()
+#   message("uWebSocketsCXX DOESN'T EXIST!")
+# endif()
 
 # find_path(SYSTEM_INCLUDE_DIR uv.h)
 # include_directories(${SYSTEM_INCLUDE_DIR})
