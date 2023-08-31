@@ -104,8 +104,8 @@ jobs:
     - name: Install dependencies
       run: |
         # zlib:x64-windows
-        vcpkg install libuv
-        vcpkg integrate install
+        vcpkg install libuv:x64-windows
+        # vcpkg integrate install
 
     - name: cmake
       run: |
