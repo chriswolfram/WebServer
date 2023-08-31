@@ -109,7 +109,7 @@ jobs:
         mkdir build
         cd build
         # -DZLIB_LIBRARY=/usr/lib/libz.dll.a
-        cmake -DCMAKE_BUILD_TYPE=Debug -DSYSTEM_ID=Windows-x86-64 ..
+        cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 ..
 
     - name: Build
       run: cmake --build build
