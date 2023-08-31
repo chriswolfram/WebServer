@@ -107,6 +107,14 @@ jobs:
         vcpkg install libuv:x64-windows
         # vcpkg integrate install
 
+    - name: ls
+      run: |
+        ls /usr/local/include
+
+    - name: ls 2
+      run: |
+        ls /usr/include
+
     - name: cmake
       run: |
         mkdir build
