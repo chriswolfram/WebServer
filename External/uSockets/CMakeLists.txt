@@ -20,3 +20,5 @@ add_library(uSockets STATIC ${SOURCES})
 target_include_directories(uSockets PUBLIC ${usockets_content_SOURCE_DIR}/src)
 target_compile_definitions(uSockets PRIVATE LIBUS_NO_SSL)
 set_property(TARGET uSockets PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+target_link_libraries(uSockets INTERFACE libuv)
