@@ -18,7 +18,7 @@ FetchContent_MakeAvailable(uWebSockets_content)
 
 # Add the CXX (header-only) library
 # find_package(ZLIB REQUIRED)
-find_package(UV REQUIRED)
+find_path(UV_INCLUDE_DIRS uv.h)
 add_library(uWebSocketsCXX INTERFACE)
 target_include_directories(uWebSocketsCXX INTERFACE ${uwebsockets_content_SOURCE_DIR}/src/ ${UV_INCLUDE_DIRS})
 # target_link_libraries(uWebSocketsCXX INTERFACE uSockets ${ZLIB_LIBRARIES})
