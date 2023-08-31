@@ -23,6 +23,9 @@ target_include_directories(uWebSocketsCXX INTERFACE ${uwebsockets_content_SOURCE
 # target_link_libraries(uWebSocketsCXX INTERFACE uSockets ${ZLIB_LIBRARIES})
 target_link_libraries(uWebSocketsCXX INTERFACE uSockets)
 
+find_path(SYSTEM_INCLUDE_DIR uv.h)
+include_directories(${SYSTEM_INCLUDE_DIR})
+
 # Add the CAPI library
 add_library(uwebsockets SHARED ${uwebsockets_content_SOURCE_DIR}/capi/libuwebsockets.cpp)
 target_include_directories(uwebsockets PUBLIC ${uwebsockets_content_SOURCE_DIR}/capi/)
