@@ -105,7 +105,7 @@ jobs:
       run: |
         # zlib:x64-windows
         vcpkg install libuv:x64-windows
-        # vcpkg integrate install
+        vcpkg integrate install
 
     - name: ls 2
       run: |
