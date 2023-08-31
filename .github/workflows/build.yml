@@ -18,7 +18,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-x86-64 -DCMAKE_OSX_ARCHITECTURES=arm64 ..
+        cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=arm64 ..
 
     - name: Build
       run: cmake --build build
@@ -45,7 +45,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=x86_64 ..
+        cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-x86-64 -DCMAKE_OSX_ARCHITECTURES=x86_64 ..
 
     - name: Build
       run: cmake --build build
