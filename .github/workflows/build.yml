@@ -113,7 +113,8 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_LIBRARY=/usr/lib/libz.dll.a ..
+        # -DCMAKE_BUILD_TYPE=Release
+        cmake -DSYSTEM_ID=Windows-x86-64 -DZLIB_LIBRARY=/usr/lib/libz.dll.a ..
 
     - name: Build
       run: |
