@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.24)
 set(CMAKE_CXX_STANDARD 20)
 
 add_definitions(-DUWS_NO_ZLIB)
+add_definitions(-DUWS_LIBUV=0)
 
 include(FetchContent)
 
@@ -26,4 +27,4 @@ target_link_libraries(uWebSocketsCXX INTERFACE uSockets)
 # Add the CAPI library
 add_library(uwebsockets SHARED ${uwebsockets_content_SOURCE_DIR}/capi/libuwebsockets.cpp)
 target_include_directories(uwebsockets PUBLIC ${uwebsockets_content_SOURCE_DIR}/capi/)
-target_link_libraries(uwebsockets uWebSocketsCXX uv)
+target_link_libraries(uwebsockets uWebSocketsCXX)
