@@ -98,24 +98,25 @@ jobs:
 
     - uses: actions/checkout@v3.6.0
 
-    - name: Enable Developer Command Prompt
-      uses: ilammy/msvc-dev-cmd@v1.12.1
+    # - name: Enable Developer Command Prompt
+    #   uses: ilammy/msvc-dev-cmd@v1.12.1
 
-    - name: Install dependencies
-      run: |
-        # zlib:x64-windows
-        vcpkg install libuv:x64-windows
-        vcpkg integrate install
+    # - name: Install dependencies
+    #   run: |
+    #     # zlib:x64-windows
+    #     vcpkg install libuv:x64-windows
+    #     vcpkg integrate install
 
-    - name: More dependencies
-      run: vcpkg install libuv uwebsockets --triplet=x64-windows
+    # - name: More dependencies
+    #   run: vcpkg install libuv uwebsockets --triplet=x64-windows
 
     - name: cmake
       run: |
         mkdir build
         cd build
         # -DZLIB_LIBRARY=/usr/lib/libz.dll.a
-        cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 ..
+        # cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 ..
+        cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 ..
 
     - name: Build
       run: cmake --build build
