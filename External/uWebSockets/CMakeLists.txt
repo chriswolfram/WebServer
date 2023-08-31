@@ -17,10 +17,11 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(uWebSockets_content)
 
 # Add the CXX (header-only) library
-find_package(ZLIB REQUIRED)
+# find_package(ZLIB REQUIRED)
 add_library(uWebSocketsCXX INTERFACE)
 target_include_directories(uWebSocketsCXX INTERFACE ${uwebsockets_content_SOURCE_DIR}/src/)
-target_link_libraries(uWebSocketsCXX INTERFACE uSockets ${ZLIB_LIBRARIES})
+# target_link_libraries(uWebSocketsCXX INTERFACE uSockets ${ZLIB_LIBRARIES})
+target_link_libraries(uWebSocketsCXX INTERFACE uSockets)
 
 # Add the CAPI library
 add_library(uwebsockets SHARED ${uwebsockets_content_SOURCE_DIR}/capi/libuwebsockets.cpp)
