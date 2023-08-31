@@ -6,7 +6,7 @@ include(ExternalProject)
 ExternalProject_Add(zlib_project
 	GIT_REPOSITORY https://github.com/madler/zlib
 	GIT_TAG v1.3
-	CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
+	CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES} -DCMAKE_C_FLAGS="-fPIC"
 )
 
 ExternalProject_Get_Property(zlib_project INSTALL_DIR)
