@@ -23,5 +23,5 @@ set_property(TARGET uSockets PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 target_include_directories(uSockets PUBLIC libuv)
 
-get_target_property(LIBUV_INCLUDES libuv INTERFACE_INCLUDE_DIRECTORIES)
-message(DIRS=${LIBUV_INCLUDES})
+get_target_property(INCLUDES uSockets INTERFACE_INCLUDE_DIRECTORIES)
+message(INCLUDES=${INCLUDES})
