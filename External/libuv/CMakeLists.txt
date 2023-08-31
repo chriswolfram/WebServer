@@ -16,3 +16,7 @@ add_library(libuv STATIC IMPORTED GLOBAL)
 add_dependencies(libuv libuv_project)
 set_property(TARGET libuv PROPERTY IMPORTED_LOCATION ${LIBUV_INSTALL_DIR}/lib/libuv.a)
 target_include_directories(libuv INTERFACE ${LIBUV_INSTALL_DIR}/include)
+
+message(DIRS1=${LIBUV_INSTALL_DIR}/include)
+get_target_property(LIBUV_INCLUDES libuv INTERFACE_INCLUDE_DIRECTORIES)
+message(DIRS3=${LIBUV_INCLUDES})

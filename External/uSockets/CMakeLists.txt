@@ -22,3 +22,6 @@ target_compile_definitions(uSockets PRIVATE LIBUS_NO_SSL)
 set_property(TARGET uSockets PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 target_include_directories(uSockets PUBLIC libuv)
+
+get_target_property(LIBUV_INCLUDES libuv INTERFACE_INCLUDE_DIRECTORIES)
+message(DIRS=${LIBUV_INCLUDES})
