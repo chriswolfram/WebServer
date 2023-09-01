@@ -26,6 +26,8 @@ jobs:
         cmake .. -DCMAKE_INSTALL_PREFIX=install -DCMAKE_OSX_ARCHITECTURES=arm64
         cmake --build .
         cmake --install .
+        echo PWD: ${PWD}
+        ls
 
     - name: Get libuv repository
       uses: actions/checkout@v3.6.0
