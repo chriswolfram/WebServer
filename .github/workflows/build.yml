@@ -54,8 +54,8 @@ jobs:
         mkdir build
         cd build
         cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=arm64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
-        cmake --build build
-        cmake --install build
+        cmake --build .
+        cmake --install .
 
     - uses: actions/upload-artifact@v3
       with:
@@ -112,8 +112,8 @@ jobs:
         mkdir build
         cd build
         cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-x86-64 -DCMAKE_OSX_ARCHITECTURES=x86_64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
-        cmake --build build
-        cmake --install build
+        cmake --build .
+        cmake --install .
 
     - uses: actions/upload-artifact@v3
       with:
@@ -170,8 +170,8 @@ jobs:
         mkdir build
         cd build
         cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Linux-x86-64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
-        cmake --build build
-        cmake --install build
+        cmake --build .
+        cmake --install .
 
     - uses: actions/upload-artifact@v3
       with:
