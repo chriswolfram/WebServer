@@ -49,11 +49,10 @@ jobs:
 
     - name: Build uWebSockets
       run: |
-        BASE_DIR=${PWD}
         cd WebServer
         mkdir build
         cd build
-        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=arm64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
+        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=arm64 -DZLIB_ROOT=../../zlib/build/install/ -DLIBUV_ROOT=../../libuv/build/install/
         cmake --build .
         cmake --install .
 
@@ -164,11 +163,10 @@ jobs:
 
     - name: Build uWebSockets
       run: |
-        BASE_DIR=${PWD}
         cd WebServer
         mkdir build
         cd build
-        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Linux-x86-64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
+        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Linux-x86-64 -DZLIB_ROOT=../../zlib/build/install/ -DLIBUV_ROOT=../../libuv/build/install/
         cmake --build .
         cmake --install .
 
