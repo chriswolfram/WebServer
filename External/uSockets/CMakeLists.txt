@@ -14,10 +14,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(uSockets_content)
 
+# Find libuv
+find_package(LIBUV REQUIRED)
+
 # Add the library
 file(GLOB_RECURSE SOURCES ${usockets_content_SOURCE_DIR}/src/*.c)
 add_library(uSockets STATIC ${SOURCES})
-target_include_directories(uSockets PUBLIC ${usockets_content_SOURCE_DIR}/src)
+target_include_directories(uSockets PUBLIC ${usockets_content_SOURCE_DIR}/src ${LIBUV_INCLUDE_DIRS})
 target_compile_definitions(uSockets PRIVATE LIBUS_NO_SSL)
 set_property(TARGET uSockets PROPERTY POSITION_INDEPENDENT_CODE ON)
 
