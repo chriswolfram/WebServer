@@ -234,6 +234,8 @@ jobs:
     steps:
     
       - uses: actions/checkout@v3
+        with:
+          sparse-checkout: WebServer
 
       - name: Download macOS uWebSockets builds
         uses: actions/download-artifact@v3
@@ -264,5 +266,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: WebServer
-          path: deployed/
+          # path: WebServer/
           if-no-files-found: error
