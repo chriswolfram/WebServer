@@ -24,4 +24,8 @@ target_include_directories(uSockets PUBLIC ${usockets_content_SOURCE_DIR}/src ${
 target_compile_definitions(uSockets PRIVATE LIBUS_NO_SSL)
 set_property(TARGET uSockets PROPERTY POSITION_INDEPENDENT_CODE ON)
 
+if(WIN32)
+  target_include_directories(uSockets PUBLIC kernel32 gdi32 winspool shell32 ole32 oleaut32 uuid comdlg32 advapi32 iphlpapi userenv psapi user32)
+endif()
+
 target_include_directories(uSockets PUBLIC libuv)
