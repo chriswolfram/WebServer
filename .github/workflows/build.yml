@@ -47,6 +47,12 @@ jobs:
 
     - name: Build uWebSockets
       run: |
+        echo 0
+        ls zlib
+        echo -1
+        ls zlib/build
+        echo -2
+        ls zlib/build/install
         BASE_DIR=${PWD}
         mkdir build
         cd build
