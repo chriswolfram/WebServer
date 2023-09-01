@@ -218,15 +218,13 @@ jobs:
       with:
         path: WebServer
 
-    - name: Install wsl
-      run: wsl --install
-
     - name: Build uWebSockets
       run: |
         cd WebServer
         mkdir build
         cd build
-        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
+        # -G Ninja
+        cmake -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
         cmake --build .
         cmake --install .
 
