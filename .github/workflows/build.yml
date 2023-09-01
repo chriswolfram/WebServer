@@ -194,6 +194,7 @@ jobs:
 
     - name: Build zlib
       run: |
+        cd zlib
         mkdir build
         cd build
         cmake .. -DCMAKE_INSTALL_PREFIX=install
