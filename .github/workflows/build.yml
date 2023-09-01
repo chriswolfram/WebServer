@@ -50,6 +50,7 @@ jobs:
         BASE_DIR=${PWD}
         mkdir build
         cd build
+        ls ${BASE_DIR}/zlib/build/build/
         cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=arm64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/build/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/build/
 
     - name: Build
