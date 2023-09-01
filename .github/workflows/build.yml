@@ -29,7 +29,7 @@ jobs:
       - name: Build lib
         run: |
           cd uWebSockets
-          $Env:CC='clang'; $Env:CXX='clang++'; clang++ -std=c++20 -lz -luv -I ../uSockets/src capi/libuwebsockets.cpp -o --shared libuwebsockets.dll
+          $Env:CC='clang'; $Env:CXX='clang++'; clang++ -std=c++20 -lz -luv -I ../uSockets/src capi/libuwebsockets.cpp --shared -o libuwebsockets.dll
       - name: Run smoke test
         run: |
           cd uWebSockets
