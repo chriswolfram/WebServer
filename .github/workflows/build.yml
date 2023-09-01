@@ -49,7 +49,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=arm64 -DZLIB_ROOT=zlib/build/build/ -DLIBUV_ROOT=libuv/build/build/
+        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=arm64 -DZLIB_ROOT=${PWD}/zlib/build/build/ -DLIBUV_ROOT=${PWD}/libuv/build/build/
 
     - name: Build
       run: cmake --build build
