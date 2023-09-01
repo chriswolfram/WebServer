@@ -51,7 +51,7 @@ jobs:
 
     - name: Build uWebSockets
       run: |
-        echo "i"
+        echo PWD: ${PWD}
         ls
         echo 0
         ls zlib
