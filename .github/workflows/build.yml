@@ -169,7 +169,7 @@ jobs:
         cd WebServer
         mkdir build
         cd build
-        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Linux-x86-64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
+        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Linux-x86-64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/ -DCMAKE_CXX_FLAGS="-fPIC"
         cmake --build .
         cmake --install .
 
