@@ -16,8 +16,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(uWebSockets_content)
 
-find_package(ZLIB REQUIRED)
-add_dependencies(uWebSocketsCXX zlib_project)
+# find_package(ZLIB REQUIRED)
 
 # Add the CXX (header-only) library
 # set(ZLIB_USE_STATIC_LIBS "ON")
@@ -25,6 +24,8 @@ add_dependencies(uWebSocketsCXX zlib_project)
 add_library(uWebSocketsCXX INTERFACE)
 target_include_directories(uWebSocketsCXX INTERFACE ${uwebsockets_content_SOURCE_DIR}/src/ libuv)
 target_link_libraries(uWebSocketsCXX INTERFACE uSockets ZLIB::ZLIB libuv)
+
+add_dependencies(uWebSocketsCXX zlib_project)
 # target_link_libraries(uWebSocketsCXX INTERFACE uSockets zlib libuv)
 # add_dependencies(uWebSocketsCXX zlib_project)
 # target_link_libraries(uWebSocketsCXX INTERFACE uSockets ${ZLIB_LIBRARIES})
