@@ -23,7 +23,7 @@ jobs:
         cd zlib
         mkdir build
         cd build
-        cmake .. -DCMAKE_INSTALL_PREFIX=build
+        cmake .. -DCMAKE_INSTALL_PREFIX=build -DCMAKE_OSX_ARCHITECTURES=arm64
         cmake --build .
         cmake --install .
 
@@ -38,7 +38,7 @@ jobs:
         cd libuv
         mkdir build
         cd build
-        cmake .. -DCMAKE_INSTALL_PREFIX=build
+        cmake .. -DCMAKE_INSTALL_PREFIX=build -DCMAKE_OSX_ARCHITECTURES=arm64
         cmake --build .
         cmake --install .
 
