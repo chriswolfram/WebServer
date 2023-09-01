@@ -12,13 +12,49 @@ jobs:
     
     steps:
 
-    - uses: actions/checkout@v3.6.0
+    - name: Get zlib repository
+      uses: actions/checkout@v3.6.0
+      with:
+        repository: https://github.com/madler/zlib
+        path: zlib
 
-    - name: cmake
+    - name: Build zlib
+      run: |
+        cd zlib
+        mkdir build
+        cd build
+        cmake .. -DCMAKE_INSTALL_PREFIX=build
+        cmake --build .
+        cmake --install .
+
+    - name: Get libuv repository
+      uses: actions/checkout@v3.6.0
+      with:
+        repository: https://github.com/libuv/libuv
+        path: libuv
+
+    - name: Build libuv
+      run: |
+        cd libuv
+        mkdir build
+        cd build
+        cmake .. -DCMAKE_INSTALL_PREFIX=build
+        cmake --build .
+        cmake --install .
+
+    - name: Get repository
+      uses: actions/checkout@v3.6.0
+
+    - name: Build uWebSockets
       run: |
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=arm64 ..
+        cmake ..
+          -DCMAKE_BUILD_TYPE=Release
+          -DSYSTEM_ID=MacOSX-ARM64
+          -DCMAKE_OSX_ARCHITECTURES=arm64
+          -DZLIB_ROOT=zlib/build/build/
+          -DLIBUV_ROOT=libuv/build/build/
 
     - name: Build
       run: cmake --build build
