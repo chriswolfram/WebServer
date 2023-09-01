@@ -16,12 +16,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(uWebSockets_content)
 
+find_package(ZLIB REQUIRED)
+
 # Add the CXX (header-only) library
 # set(ZLIB_USE_STATIC_LIBS "ON")
 # find_package(ZLIB REQUIRED)
 add_library(uWebSocketsCXX INTERFACE)
 target_include_directories(uWebSocketsCXX INTERFACE ${uwebsockets_content_SOURCE_DIR}/src/ libuv)
-target_link_libraries(uWebSocketsCXX INTERFACE uSockets zlib libuv)
+target_link_libraries(uWebSocketsCXX INTERFACE uSockets ZLIB::ZLIB libuv)
+# target_link_libraries(uWebSocketsCXX INTERFACE uSockets zlib libuv)
 # add_dependencies(uWebSocketsCXX zlib_project)
 # target_link_libraries(uWebSocketsCXX INTERFACE uSockets ${ZLIB_LIBRARIES})
 # target_link_libraries(uWebSocketsCXX INTERFACE uSockets)
@@ -47,10 +50,10 @@ target_link_libraries(uWebSocketsCXX INTERFACE uSockets zlib libuv)
 # find_path(SYSTEM_INCLUDE_DIR uv.h)
 # include_directories(${SYSTEM_INCLUDE_DIR})
 
-get_target_property(INCLUDES2 uWebSocketsCXX INTERFACE_INCLUDE_DIRECTORIES)
-message(INCLUDES2=${INCLUDES2})
+# get_target_property(INCLUDES2 uWebSocketsCXX INTERFACE_INCLUDE_DIRECTORIES)
+# message(INCLUDES2=${INCLUDES2})
 
-execute_process(COMMAND tree)
+message(ZLIB_LIBRARIES=${ZLIB_LIBRARIES})
 
 # Add the CAPI library
 add_library(uwebsockets SHARED ${uwebsockets_content_SOURCE_DIR}/capi/libuwebsockets.cpp)
