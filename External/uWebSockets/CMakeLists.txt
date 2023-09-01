@@ -50,6 +50,8 @@ target_link_libraries(uWebSocketsCXX INTERFACE uSockets zlib libuv)
 get_target_property(INCLUDES2 uWebSocketsCXX INTERFACE_INCLUDE_DIRECTORIES)
 message(INCLUDES2=${INCLUDES2})
 
+execute_process(COMMAND tree)
+
 # Add the CAPI library
 add_library(uwebsockets SHARED ${uwebsockets_content_SOURCE_DIR}/capi/libuwebsockets.cpp)
 target_include_directories(uwebsockets PUBLIC ${uwebsockets_content_SOURCE_DIR}/capi/ libuv)
