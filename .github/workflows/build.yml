@@ -6,47 +6,47 @@ on:
   workflow_dispatch:
 jobs:
 
-  # build-uwebsockets-windows:
-  #   name: Build uWebSockets (Windows)
-  #   runs-on: windows-latest
-  #   steps:
+  build-uwebsockets-windows:
+    name: Build uWebSockets (Windows)
+    runs-on: windows-latest
+    steps:
 
-  #     - name: Get uWebSockets repository
-  #       uses: actions/checkout@v3.6.0
-  #       with:
-  #         repository: uNetworking/uWebSockets
-  #         path: uWebSockets
-  #         submodules: recursive
+      - name: Get uWebSockets repository
+        uses: actions/checkout@v3.6.0
+        with:
+          repository: uNetworking/uWebSockets
+          path: uWebSockets
+          submodules: recursive
         
-  #     - name: Install libuv
-  #       run: |
-  #         vcpkg install libuv:x64-windows libuv:x64-windows-static
-  #         cp C:\vcpkg\installed\x64-windows\lib\uv.lib uWebSockets\uv.lib
+      - name: Install libuv
+        run: |
+          vcpkg install libuv:x64-windows libuv:x64-windows-static
+          cp C:\vcpkg\installed\x64-windows\lib\uv.lib uWebSockets\uv.lib
           
-  #     - uses: ilammy/msvc-dev-cmd@v1
+      - uses: ilammy/msvc-dev-cmd@v1
       
-  #     - name: Run make
-  #       run: |
-  #         cd uWebSockets
-  #         $ENV:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $ENV:CC='clang';
-  #         $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
-  #         # $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
-  #         $ENV:LDFLAGS='-L D:\a\WebServer\uWebSockets';
-  #         $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'; nmake
+      - name: Run make
+        run: |
+          cd uWebSockets
+          $ENV:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $ENV:CC='clang';
+          $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
+          # $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
+          $ENV:LDFLAGS='-L D:\a\WebServer\uWebSockets';
+          $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'; nmake
 
-  #     - name: Build CAPI
-  #       run: |
-  #         cd uWebSockets
-  #         clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB -L D:\a\WebServer\uWebSockets uSockets/*.o -luv --shared -o libuwebsockets.dll capi/libuwebsockets.cpp
+      - name: Build CAPI
+        run: |
+          cd uWebSockets
+          clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB -L D:\a\WebServer\uWebSockets uSockets/*.o -luv --shared -o libuwebsockets.dll capi/libuwebsockets.cpp
           
-  #     - name: Print dependencies
-  #       run: dumpbin /dependents uWebSockets/libuwebsockets.dll
+      - name: Print dependencies
+        run: dumpbin /dependents uWebSockets/libuwebsockets.dll
 
-  #     - uses: actions/upload-artifact@v3
-  #       with:
-  #         name: libuwebsockets-windows
-  #         path: uWebSockets/libuwebsockets.dll
-  #         if-no-files-found: error
+      - uses: actions/upload-artifact@v3
+        with:
+          name: libuwebsockets-windows
+          path: uWebSockets/libuwebsockets.dll
+          if-no-files-found: error
         
 
   build-uwebsockets-mac-arm: 
@@ -227,7 +227,7 @@ jobs:
       - build-uwebsockets-mac
       - build-uwebsockets-mac-arm
       - build-uwebsockets-linux
-      # - build-uwebsockets-windows
+      - build-uwebsockets-windows
 
     runs-on: ubuntu-latest
 
@@ -263,8 +263,7 @@ jobs:
       - name: Download Windows uWebSockets builds
         uses: actions/download-artifact@v3
         with:
-        # CHANGE TO WINDOWS
-          name: libuwebsockets-linux
+          name: libuwebsockets-windows
           path: deployed/WebServer/LibraryResources/Windows-x86-64/
 
       - name: Upload final paclet
