@@ -223,7 +223,7 @@ jobs:
         cd WebServer
         mkdir build
         cd build
-        cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/"
+        cmake .. -- -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/"
         cmake --build .
         cmake --install .
 
