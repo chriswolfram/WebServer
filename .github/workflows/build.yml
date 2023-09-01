@@ -196,7 +196,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -G Ninja -DCMAKE_INSTALL_PREFIX=install ..
+        cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=install
         cmake --build .
         cmake --install .
 
