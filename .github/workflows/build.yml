@@ -45,6 +45,74 @@ jobs:
           deno run --allow-net tests\smoke.mjs
           Stop-Process -Name Crc32
 
+
+  build-uwebsockets-windows: 
+    name: Build uWebSockets (Windows)
+    runs-on: windows-latest
+    
+    steps:
+
+    - uses: ilammy/msvc-dev-cmd@v1
+    - uses: ilammy/setup-nasm@v1.2.1
+
+    - name: Get libuv repository
+      uses: actions/checkout@v3.6.0
+      with:
+        repository: libuv/libuv
+        path: libuv
+
+    - name: Build libuv
+      run: |
+        cd libuv
+        mkdir build
+        cd build
+        cmake .. -G Ninja -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install
+        cmake --build .
+        cmake --install .
+
+    - name: Get uWebSockets repository
+      uses: actions/checkout@v3.6.0
+      with:
+        repository: uNetworking/uWebSockets
+        path: uWebSockets
+
+    - name: Build libuwebsockets (CAPI)
+      run: |
+        cd uWebSockets/capi
+        $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
+        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
+        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib -L ..\..\libuv\build\install\lib';
+        $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'; nmake
+
+    - name: Build lib 0
+      run: |
+        cd uWebSockets
+        clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB capi/libuwebsockets.cpp -L C:\vcpkg\installed\x64-windows\lib -L ..\..\libuv\build\install\lib uSockets/*.o -luv --shared -o libuwebsockets.dll
+    - name: deps
+      run: dumpbin /dependents uWebSockets/libuwebsockets.dll
+
+    - name: Get repository
+      uses: actions/checkout@v3.6.0
+      with:
+        path: WebServer
+
+    - name: Build uWebSockets
+      run: |          
+        cd WebServer
+        mkdir build
+        cd build
+        # -G Ninja
+        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
+        cmake --build .
+        cmake --install .
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: build-windows
+        path: WebServer/build/WebServer
+        if-no-files-found: error
+        
+
   build-uwebsockets-mac-arm: 
     name: Build uWebSockets (macOS ARM)
     runs-on: macos-latest
@@ -212,70 +280,6 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: build-linux
-        path: WebServer/build/WebServer
-        if-no-files-found: error
-
-
-  build-uwebsockets-windows: 
-    name: Build uWebSockets (Windows)
-    runs-on: windows-latest
-    
-    steps:
-
-    - name: Build dependencies
-      run: vcpkg install usockets uwebsockets --triplet=x64-windows-static
-
-    - uses: ilammy/msvc-dev-cmd@v1
-    - uses: ilammy/setup-nasm@v1.2.1
-      
-    - name: Get uWebSockets repository
-      uses: actions/checkout@v3.6.0
-      with:
-        repository: uNetworking/uWebSockets
-        path: uWebSockets
-
-    - name: Build libuwebsockets (CAPI)
-      run: |
-        cd uWebSockets/capi
-        $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
-        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
-        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
-        $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1';
-        clang++ libuwebsockets.cpp -lusockets --shared -o libuwebsockets.dll
-
-    - name: Get libuv repository
-      uses: actions/checkout@v3.6.0
-      with:
-        repository: libuv/libuv
-        path: libuv
-
-    - name: Build libuv
-      run: |
-        cd libuv
-        mkdir build
-        cd build
-        cmake .. -G Ninja -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install
-        cmake --build .
-        cmake --install .
-
-    - name: Get repository
-      uses: actions/checkout@v3.6.0
-      with:
-        path: WebServer
-
-    - name: Build uWebSockets
-      run: |          
-        cd WebServer
-        mkdir build
-        cd build
-        # -G Ninja
-        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
-        cmake --build .
-        cmake --install .
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: build-windows
         path: WebServer/build/WebServer
         if-no-files-found: error
 
