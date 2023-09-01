@@ -26,10 +26,14 @@ jobs:
           ls
       - name: Run unit tests
         run: $Env:CC='clang'; $Env:CXX='clang++'; make -C uWebSockets/tests
+      - name: Build lib 0
+        run: |
+          cd uWebSockets
+          clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB capi/libuwebsockets.cpp -L C:\vcpkg\installed\x64-windows\lib uSockets/*.o -luv --shared -o libuwebsockets.dll
       - name: Build lib
         run: |
           cd uWebSockets
-          $Env:CC='clang'; $Env:CXX='clang++'; clang++ -std=c++20 -lz -luv -I ../uSockets/src capi/libuwebsockets.cpp --shared -o libuwebsockets.dll
+          $Env:CC='clang'; $Env:CXX='clang++'; clang++ -std=c++20 -lz -luv -IuSockets/src capi/libuwebsockets.cpp --shared -o libuwebsockets.dll
       - name: Run smoke test
         run: |
           cd uWebSockets
