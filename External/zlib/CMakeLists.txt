@@ -9,10 +9,10 @@ ExternalProject_Add(zlib_project
 	CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES} -DCMAKE_C_FLAGS="-fPIC"
 )
 
-ExternalProject_Get_Property(zlib_project INSTALL_DIR)
-set(ZLIB_INSTALL_DIR ${INSTALL_DIR})
+# ExternalProject_Get_Property(zlib_project INSTALL_DIR)
+# set(ZLIB_INSTALL_DIR ${INSTALL_DIR})
 
-add_library(zlib STATIC IMPORTED GLOBAL)
-add_dependencies(zlib zlib_project)
-set_property(TARGET zlib PROPERTY IMPORTED_LOCATION ${ZLIB_INSTALL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}z${CMAKE_STATIC_LIBRARY_SUFFIX})
-target_include_directories(zlib INTERFACE ${ZLIB_INSTALL_DIR}/include)
+# add_library(zlib STATIC IMPORTED GLOBAL)
+# add_dependencies(zlib zlib_project)
+# set_property(TARGET zlib PROPERTY IMPORTED_LOCATION ${ZLIB_INSTALL_DIR}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}z${CMAKE_STATIC_LIBRARY_SUFFIX})
+# target_include_directories(zlib INTERFACE ${ZLIB_INSTALL_DIR}/include)
