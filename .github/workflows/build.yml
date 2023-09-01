@@ -26,7 +26,8 @@ jobs:
           cd uWebSockets
           $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
           $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
-          $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
+          # $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
+          $ENV:LDFLAGS='-L ${PWD}';
           $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'; nmake
           ls
       # - name: Run unit tests
@@ -86,6 +87,7 @@ jobs:
     - name: Build libuwebsockets (CAPI)
       run: |
         cd uWebSockets
+        ls ../../libuv/build/install/include
         $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
         $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include -I ../../libuv/build/install/include';
         $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib -I ../../libuv/build/install/lib';
