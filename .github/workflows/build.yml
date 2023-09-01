@@ -41,7 +41,10 @@ jobs:
           clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB -L D:\a\WebServer\uWebSockets uSockets/*.o -luv --shared -o libuwebsockets.dll capi/libuwebsockets.cpp
           
       - name: Print dependencies
-        run: dumpbin /dependents uWebSockets/libuwebsockets.dll
+        run: |
+          dumpbin /dependents uWebSockets/libuwebsockets.dll
+          dumpbin /dependents uWebSockets/uv.dll
+          dumpbin /dependents uWebSockets/uv.lib
 
       - uses: actions/upload-artifact@v3
         with:
