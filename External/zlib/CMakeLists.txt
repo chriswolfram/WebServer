@@ -37,7 +37,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(zlib)
 
-target_compile_options(zlib PUBLIC -fPIC)
+target_compile_options(zlibstatic PUBLIC -fPIC)
 
 message(test=${zlib_BINARY_DIR})
 
