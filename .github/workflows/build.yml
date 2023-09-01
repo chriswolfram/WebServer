@@ -38,7 +38,7 @@ jobs:
       - name: Build CAPI
         run: |
           cd uWebSockets
-          clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB -L D:\a\WebServer\uWebSockets uSockets/*.o -luv --shared -o libuwebsockets.dll capi/libuwebsockets.cpp
+          clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB -L D:\a\WebServer\uWebSockets uSockets/*.o --shared -o libuwebsockets.dll capi/libuwebsockets.cpp
           
       - name: Print dependencies
         run: |
