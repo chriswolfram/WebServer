@@ -189,20 +189,20 @@ jobs:
     - uses: ilammy/msvc-dev-cmd@v1
     - uses: ilammy/setup-nasm@v1.2.1
       
-    - name: Get zlib repository
+    - name: Get uWebSockets repository
       uses: actions/checkout@v3.6.0
       with:
-        repository: madler/zlib
-        path: zlib
+        repository: uNetworking/uWebSockets
+        path: uWebSockets
 
-    - name: Build zlib
+    - name: Build libuwebsockets (CAPI)
       run: |
-        cd zlib
-        mkdir build
-        cd build
-        cmake .. -G Ninja -DCMAKE_INSTALL_PREFIX=install
-        cmake --build .
-        cmake --install .
+        cd uWebSockets/capi
+        $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
+        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
+        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
+        $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1';
+        clang libuwebsockets.c -lusockets --shared -o libuwebsockets.dll
 
     - name: Get libuv repository
       uses: actions/checkout@v3.6.0
