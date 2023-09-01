@@ -139,7 +139,7 @@ jobs:
         cd zlib
         mkdir build
         cd build
-        cmake .. -DCMAKE_INSTALL_PREFIX=install
+        cmake .. -DCMAKE_INSTALL_PREFIX=install -DCMAKE_CXX_FLAGS="-fPIC"
         cmake --build .
         cmake --install .
 
@@ -154,7 +154,7 @@ jobs:
         cd libuv
         mkdir build
         cd build
-        cmake .. -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install
+        cmake .. -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install -DCMAKE_CXX_FLAGS="-fPIC"
         cmake --build .
         cmake --install .
 
