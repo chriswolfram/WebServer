@@ -186,38 +186,55 @@ jobs:
     
     steps:
 
-    - uses: actions/checkout@v3.6.0
+    - name: Get zlib repository
+      uses: actions/checkout@v3.6.0
+      with:
+        repository: madler/zlib
+        path: zlib
 
-    - name: Enable Developer Command Prompt
-      uses: ilammy/msvc-dev-cmd@v1.12.1
-
-    - name: Install dependencies
+    - name: Build zlib
       run: |
-        # zlib:x64-windows
-        vcpkg install libuv:x64-windows
-        vcpkg integrate install
-
-    # - name: More dependencies
-    #   run: vcpkg install libuv uwebsockets --triplet=x64-windows
-
-    - name: cmake
-      run: |
+        cd zlib
         mkdir build
         cd build
-        # -DZLIB_LIBRARY=/usr/lib/libz.dll.a
-        # cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 ..
-        cmake -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 ..
+        cmake .. -DCMAKE_INSTALL_PREFIX=install
+        cmake --build .
+        cmake --install .
 
-    - name: Build
-      run: cmake --build build
+    - name: Get libuv repository
+      uses: actions/checkout@v3.6.0
+      with:
+        repository: libuv/libuv
+        path: libuv
 
-    - name: Install
-      run: cmake --install build
+    - name: Build libuv
+      run: |
+        cd libuv
+        mkdir build
+        cd build
+        cmake .. -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install
+        cmake --build .
+        cmake --install .
+
+    - name: Get repository
+      uses: actions/checkout@v3.6.0
+      with:
+        path: WebServer
+
+    - name: Build uWebSockets
+      run: |
+        BASE_DIR=${PWD}
+        cd WebServer
+        mkdir build
+        cd build
+        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
+        cmake --build .
+        cmake --install .
 
     - uses: actions/upload-artifact@v3
       with:
         name: build-windows
-        path: build/WebServer
+        path: WebServer/build/WebServer
         if-no-files-found: error
 
 
