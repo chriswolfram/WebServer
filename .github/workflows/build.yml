@@ -194,7 +194,7 @@ jobs:
         cd zlib
         mkdir build
         cd build
-        cmake .. -G "Visual Studio 17 2022" -DCMAKE_INSTALL_PREFIX=install
+        cmake .. -G Ninja -DCMAKE_INSTALL_PREFIX=install
         cmake --build .
         cmake --install .
 
@@ -209,7 +209,7 @@ jobs:
         cd libuv
         mkdir build
         cd build
-        cmake .. -G "Visual Studio 17 2022" -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install
+        cmake .. -G Ninja -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install
         cmake --build .
         cmake --install .
 
@@ -224,7 +224,7 @@ jobs:
         mkdir build
         cd build
         # -G Ninja
-        cmake -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
+        cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
         cmake --build .
         cmake --install .
 
