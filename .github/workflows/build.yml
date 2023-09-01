@@ -39,7 +39,7 @@ jobs:
         run: |
           cd uWebSockets
           ls
-          ls D:\a\WebServer\uWebSockets
+          ls D:\a\WebServer\WebServer\uWebSockets
           clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB -L D:\a\WebServer\WebServer\uWebSockets -lD:\a\WebServer\WebServer\uWebSockets\uv.lib uSockets/*.o --shared -o libuwebsockets.dll capi/libuwebsockets.cpp
           
       - name: Print dependencies
