@@ -30,6 +30,8 @@ jobs:
         run: |
           cd uWebSockets
           clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB capi/libuwebsockets.cpp -L C:\vcpkg\installed\x64-windows\lib uSockets/*.o -luv --shared -o libuwebsockets.dll
+      - name: deps
+        run: dumpbin /dependents uWebSockets/libuwebsockets.dll
       - name: Build lib
         run: |
           cd uWebSockets
