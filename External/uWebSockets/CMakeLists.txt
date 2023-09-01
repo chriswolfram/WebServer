@@ -17,6 +17,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(uWebSockets_content)
 
 find_package(ZLIB REQUIRED)
+add_dependencies(uWebSocketsCXX zlib_project)
 
 # Add the CXX (header-only) library
 # set(ZLIB_USE_STATIC_LIBS "ON")
