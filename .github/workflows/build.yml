@@ -218,8 +218,10 @@ jobs:
       with:
         path: WebServer
 
+    - name: Install wsl
+      run: wsl --install
+
     - name: Build uWebSockets
-      shell: pwsh
       run: |
         cd WebServer
         mkdir build
