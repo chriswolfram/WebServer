@@ -37,6 +37,8 @@ jobs:
 
     - name: Build libuv
       run: |
+        echo PWD: ${PWD}
+        ls
         cd libuv
         mkdir build
         cd build
