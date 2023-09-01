@@ -69,7 +69,6 @@ jobs:
 
     - name: Build libuv
       run: |
-        echo PWD: ${PWD}
         cd libuv
         mkdir build
         cd build
@@ -87,10 +86,10 @@ jobs:
     - name: Build libuwebsockets (CAPI)
       run: |
         cd uWebSockets
-        ls ../../libuv/build/install/include
+        ls ../libuv/build/install/include
         $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
-        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include -I ../../libuv/build/install/include';
-        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib -I ../../libuv/build/install/lib';
+        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include -I ../libuv/build/install/include';
+        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib -I ../libuv/build/install/lib';
         $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'; nmake
         ls
 
@@ -98,8 +97,8 @@ jobs:
       run: |
         cd uWebSockets
         $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
-        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include -I ../../libuv/build/install/include';
-        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib -I ../../libuv/build/install/lib';
+        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include -I ../libuv/build/install/include';
+        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib -I ../libuv/build/install/lib';
         $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1';
         clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB capi/libuwebsockets.cpp uSockets/*.o -luv --shared -o libuwebsockets.dll
     - name: deps
@@ -116,7 +115,7 @@ jobs:
         mkdir build
         cd build
         # -G Ninja
-        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
+        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
         cmake --build .
         cmake --install .
 
