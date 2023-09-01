@@ -223,6 +223,9 @@ jobs:
 
     - name: Build uWebSockets
       run: |
+        $Env:CC='clang'
+        $Env:CXX='clang++'
+          
         cd WebServer
         mkdir build
         cd build
