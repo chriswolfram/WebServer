@@ -234,38 +234,31 @@ jobs:
     steps:
     
       - uses: actions/checkout@v3
-        with:
-          path: deployed/WebServer
-          sparse-checkout: |
-            Documentation
-            Kernel
-            PacletInfo.wl
-            ResourceDefinition.nb
 
       - name: Download macOS uWebSockets builds
         uses: actions/download-artifact@v3
         with:
           name: libuwebsockets-macos
-          path: deployed/WebServer/LibraryResources/MacOSX-x86-64/
+          path: WebServer/LibraryResources/MacOSX-x86-64/
 
       - name: Download macOS (ARM) uWebSockets builds
         uses: actions/download-artifact@v3
         with:
           name: libuwebsockets-macos-arm
-          path: deployed/WebServer/LibraryResources/MacOSX-ARM64/
+          path: WebServer/WebServer/LibraryResources/MacOSX-ARM64/
 
       - name: Download Linux uWebSockets builds
         uses: actions/download-artifact@v3
         with:
           name: libuwebsockets-linux
-          path: deployed/WebServer/LibraryResources/Linux-x86-64/
+          path: WebServer/WebServer/LibraryResources/Linux-x86-64/
 
       - name: Download Windows uWebSockets builds
         uses: actions/download-artifact@v3
         with:
         # CHANGE TO WINDOWS
           name: libuwebsockets-linux
-          path: deployed/WebServer/LibraryResources/Windows-x86-64/
+          path: WebServer/WebServer/LibraryResources/Windows-x86-64/
 
       - name: Upload final paclet
         uses: actions/upload-artifact@v3
