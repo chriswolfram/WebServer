@@ -87,9 +87,10 @@ jobs:
       run: |
         cd uWebSockets
         ls ../libuv/build/install/include
+        ls ../libuv/build/install/lib
         $Env:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $Env:CC='clang';
-        $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include -I D:\a\WebServer\WebServer\libuv\build\install\include';
-        $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib -L D:\a\WebServer\WebServer\libuv\build\install\lib';
+        $ENV:CFLAGS='-I D:\a\WebServer\WebServer\libuv\build\install\include';
+        $ENV:LDFLAGS='-L D:\a\WebServer\WebServer\libuv\build\install\lib';
         $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'; nmake
         ls
 
