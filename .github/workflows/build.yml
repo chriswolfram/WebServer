@@ -219,6 +219,7 @@ jobs:
         path: WebServer
 
     - name: Build uWebSockets
+      shell: bash
       run: |
         cd WebServer
         mkdir build
