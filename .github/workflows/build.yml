@@ -32,7 +32,7 @@ jobs:
           $ENV:WITH_ZLIB='0'; $ENV:WITH_LTO='0'; $ENV:CC='clang';
           $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
           # $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
-          $ENV:LDFLAGS='-L D:\a\WebServer\uWebSockets';
+          $ENV:LDFLAGS='-L D:\a\WebServer\WebServer\uWebSockets';
           $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'; nmake
 
       - name: Build CAPI
@@ -40,7 +40,7 @@ jobs:
           cd uWebSockets
           ls
           ls D:\a\WebServer\uWebSockets
-          clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB -L D:\a\WebServer\uWebSockets -lD:\a\WebServer\uWebSockets\uv.lib uSockets/*.o --shared -o libuwebsockets.dll capi/libuwebsockets.cpp
+          clang++ -march=native -O3 -std=c++20 -Isrc -IuSockets/src -DUWS_NO_ZLIB -L D:\a\WebServer\WebServer\uWebSockets -lD:\a\WebServer\WebServer\uWebSockets\uv.lib uSockets/*.o --shared -o libuwebsockets.dll capi/libuwebsockets.cpp
           
       - name: Print dependencies
         run: |
