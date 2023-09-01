@@ -14,5 +14,5 @@ set(ZLIB_INSTALL_DIR ${INSTALL_DIR})
 
 add_library(zlib STATIC IMPORTED GLOBAL)
 add_dependencies(zlib zlib_project)
-set_property(TARGET zlib PROPERTY IMPORTED_LOCATION ${ZLIB_INSTALL_DIR}/lib/libz.a)
+set_property(TARGET zlib PROPERTY IMPORTED_LOCATION ${ZLIB_INSTALL_DIR}/lib/libz.lib)
 target_include_directories(zlib INTERFACE ${ZLIB_INSTALL_DIR}/include)
