@@ -184,7 +184,10 @@ jobs:
     steps:
 
     - name: Build dependencies
-      run: vcpkg install libuv uwebsockets --triplet=x64-windows
+      run: vcpkg install uwebsockets --triplet=""
+
+    - name: Build dependencies
+      run: vcpkg install usockets --triplet=""
 
     - uses: ilammy/msvc-dev-cmd@v1
     - uses: ilammy/setup-nasm@v1.2.1
