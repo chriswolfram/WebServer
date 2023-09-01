@@ -219,7 +219,7 @@ jobs:
         path: WebServer
 
     - name: Build uWebSockets
-      shell: bash
+      shell: pwsh
       run: |
         cd WebServer
         mkdir build
