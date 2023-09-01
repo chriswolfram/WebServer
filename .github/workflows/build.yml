@@ -183,6 +183,9 @@ jobs:
     
     steps:
 
+    - uses: ilammy/msvc-dev-cmd@v1
+    - uses: ilammy/setup-nasm@v1.2.1
+      
     - name: Get zlib repository
       uses: actions/checkout@v3.6.0
       with:
@@ -224,7 +227,7 @@ jobs:
         mkdir build
         cd build
         # -G Ninja
-        cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
+        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
         cmake --build .
         cmake --install .
 
