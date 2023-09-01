@@ -42,7 +42,7 @@ jobs:
         cd libuv
         mkdir build
         cd build
-        cmake .. -DLIBUV_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=install -DCMAKE_OSX_ARCHITECTURES=arm64
+        cmake .. -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install -DCMAKE_OSX_ARCHITECTURES=arm64
         cmake --build .
         cmake --install .
 
