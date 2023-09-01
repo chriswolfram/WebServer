@@ -212,7 +212,7 @@ jobs:
         cd libuv
         mkdir build
         cd build
-        cmake .. -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install
+        cmake .. -G Ninja -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install
         cmake --build .
         cmake --install .
 
@@ -227,7 +227,7 @@ jobs:
         cd WebServer
         mkdir build
         cd build
-        cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
+        cmake .. -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
         cmake --build .
         cmake --install .
 
