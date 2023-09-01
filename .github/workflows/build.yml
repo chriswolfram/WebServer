@@ -184,10 +184,7 @@ jobs:
     steps:
 
     - name: Build dependencies
-      run: vcpkg install uwebsockets --triplet=x64-windows
-
-    - name: Build dependencies
-      run: vcpkg install usockets --triplet=x64-windows
+      run: vcpkg install usockets uwebsockets --triplet=x64-windows-static
 
     - uses: ilammy/msvc-dev-cmd@v1
     - uses: ilammy/setup-nasm@v1.2.1
