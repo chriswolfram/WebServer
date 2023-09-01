@@ -102,7 +102,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: libuwebsockets-macos-arm
-        path: WebServer/build/WebServer/LibraryResources/libuwebsockets.dylib
+        path: WebServer/build/WebServer/LibraryResources/MacOSX-ARM64/libuwebsockets.dylib
         if-no-files-found: error
 
 
@@ -159,7 +159,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: libuwebsockets-macos
-        path: WebServer/build/WebServer/LibraryResources/libuwebsockets.dylib
+        path: WebServer/build/WebServer/LibraryResources/MacOSX-x86-64/libuwebsockets.dylib
         if-no-files-found: error
 
 
@@ -216,7 +216,7 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: libuwebsockets-linux
-        path: WebServer/build/WebServer/LibraryResources/libuwebsockets.so
+        path: WebServer/build/WebServer/LibraryResources/Linux-x86-64/libuwebsockets.so
         if-no-files-found: error
         
 
