@@ -15,7 +15,7 @@ jobs:
     - name: Get zlib repository
       uses: actions/checkout@v3.6.0
       with:
-        repository: https://github.com/madler/zlib
+        repository: madler/zlib
         path: zlib
 
     - name: Build zlib
@@ -30,7 +30,7 @@ jobs:
     - name: Get libuv repository
       uses: actions/checkout@v3.6.0
       with:
-        repository: https://github.com/libuv/libuv
+        repository: libuv/libuv
         path: libuv
 
     - name: Build libuv
