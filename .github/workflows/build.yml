@@ -48,18 +48,13 @@ jobs:
 
     - name: Get repository
       uses: actions/checkout@v3.6.0
+      with:
+        path: WebServer
 
     - name: Build uWebSockets
       run: |
-        echo PWD: ${PWD}
-        ls
-        echo 0
-        ls zlib
-        echo -1
-        ls zlib/build
-        echo -2
-        ls zlib/build/install
         BASE_DIR=${PWD}
+        cd WebServer
         mkdir build
         cd build
         echo 1
@@ -71,15 +66,19 @@ jobs:
         cmake .. -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=MacOSX-ARM64 -DCMAKE_OSX_ARCHITECTURES=arm64 -DZLIB_ROOT=${BASE_DIR}/zlib/build/install/ -DLIBUV_ROOT=${BASE_DIR}/libuv/build/install/
 
     - name: Build
-      run: cmake --build build
+      run: |
+        cd WebServer
+        cmake --build build
 
     - name: Install
-      run: cmake --install build
+      run: |
+        cd WebServer
+        cmake --install build
 
     - uses: actions/upload-artifact@v3
       with:
         name: build-macos-arm
-        path: build/WebServer
+        path: WebServer/build/WebServer
         if-no-files-found: error
 
 
