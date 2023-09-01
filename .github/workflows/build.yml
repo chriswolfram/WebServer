@@ -33,7 +33,7 @@ jobs:
           $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include D:\a\WebServer\WebServer\uWebSockets\uv.lib';
           # $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
           $ENV:LDFLAGS='-L D:\a\WebServer\WebServer\uWebSockets';
-          $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1'; nmake
+          $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='0'; nmake
 
       - name: Build CAPI
         run: |
