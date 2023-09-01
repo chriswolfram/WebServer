@@ -75,7 +75,7 @@ jobs:
         cmake .. -G Ninja -DLIBUV_BUILD_TESTS=OFF -DLIBUV_BUILD_SHARED=OFF -DCMAKE_INSTALL_PREFIX=install
         cmake --build .
         cmake --install .
-        cp install/libuv.lib uv.lib
+        cp install/lib/libuv.lib /install/lib/uv.lib
 
     - name: Get uWebSockets repository
       uses: actions/checkout@v3.6.0
