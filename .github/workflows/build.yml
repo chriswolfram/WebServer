@@ -227,7 +227,7 @@ jobs:
         mkdir build
         cd build
         # -G Ninja
-        cmake -G Ninja -DCMAKE_CXX_STANDARD_LIBRARIES="-lkernel32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -liphlpapi -luserenv -lpsapi -luser32" -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
+        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DSYSTEM_ID=Windows-x86-64 -DZLIB_ROOT="../../zlib/build/install/" -DLIBUV_ROOT="../../libuv/build/install/" ..
         cmake --build .
         cmake --install .
 
