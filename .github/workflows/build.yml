@@ -202,7 +202,7 @@ jobs:
         $ENV:CFLAGS='-I C:\vcpkg\installed\x64-windows\include';
         $ENV:LDFLAGS='-L C:\vcpkg\installed\x64-windows\lib';
         $ENV:CXX='clang++'; $ENV:EXEC_SUFFIX='.exe'; $ENV:WITH_LIBUV='1';
-        clang libuwebsockets.c -lusockets --shared -o libuwebsockets.dll
+        clang++ libuwebsockets.cpp -lusockets --shared -o libuwebsockets.dll
 
     - name: Get libuv repository
       uses: actions/checkout@v3.6.0
