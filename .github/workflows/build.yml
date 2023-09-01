@@ -235,8 +235,12 @@ jobs:
     
       - uses: actions/checkout@v3
         with:
-          path: deployed
-          sparse-checkout: WebServer
+          path: WebServer
+
+      - name: Get build directory
+        run: |
+          mkdir deployed
+          mv WebServer/WebServer deployed/WebServer
 
       - name: Download macOS uWebSockets builds
         uses: actions/download-artifact@v3
