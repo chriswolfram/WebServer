@@ -15,6 +15,9 @@ PacletObject[
         "Context" -> {"ChristopherWolfram`WebServer`"}
       },
       {
+        "LibraryResources"
+      },
+      {
         "Documentation",
         "Root" -> "Documentation",
         "Language" -> "English"
