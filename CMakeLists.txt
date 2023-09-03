@@ -21,6 +21,7 @@ install(
 	FILES
 		WebServer/PacletInfo.wl
 		WebServer/ResourceDefinition.nb
+		WebServer/LICENSE
 	DESTINATION ${PACLET_DIR}
 )
 
