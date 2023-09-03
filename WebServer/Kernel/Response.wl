@@ -15,7 +15,6 @@ responseWriteStatusC := responseWriteStatusC = ForeignFunctionLoad[$LibUWebSocke
 
 
 (* responseWriteHeader *)
-(* DLL_EXPORT void uws_res_write_header(int ssl, uws_res_t *res, const char *key, size_t key_length, const char *value, size_t value_length); *)
 responseWriteHeaderC := responseWriteHeaderC = ForeignFunctionLoad[$LibUWebSockets,
 	"uws_res_write_header",
 	{
